@@ -32,7 +32,27 @@ connectDB();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://127.0.0.1:5173', process.env.CLIENT_URL].filter(Boolean),
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl, health checks)
+    if (!origin) return callback(null, true);
+
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'http://127.0.0.1:5173',
+      process.env.CLIENT_URL
+    ].filter(Boolean);
+
+    if (
+      allowedOrigins.includes(origin) ||
+      origin.endsWith('.vercel.app') ||
+      origin.endsWith('.onrender.com') ||
+      process.env.NODE_ENV !== 'production'
+    ) {
+      return callback(null, true);
+    }
+
+    return callback(null, true);
+  },
   credentials: true
 }));
 app.use(express.json());

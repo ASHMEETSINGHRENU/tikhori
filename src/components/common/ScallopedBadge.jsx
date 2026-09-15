@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * ScallopedBadge
  * Inspired by Tikhori logo's circular sunburst / scalloped ring.
- * Used for origin stamps, certifications (100% Organic, Small Batch, Stone-Ground), and stickers.
+ * Features hover spring physics, wobble tilt, and customizable colors.
  */
 export const ScallopedBadge = ({
   textTop = '',
@@ -69,10 +69,10 @@ export const ScallopedBadge = ({
 
   return (
     <div
-      className={`relative inline-flex items-center justify-center select-none font-display ${sizeMap[size]} ${className}`}
+      className={`relative inline-flex items-center justify-center select-none font-display cursor-pointer transition-transform duration-500 ease-spring hover:scale-110 hover:rotate-12 ${sizeMap[size]} ${className}`}
       style={{ transform: `rotate(${rotate}deg)` }}
     >
-      <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
+      <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md transition-transform duration-700 hover:rotate-45">
         {/* Scalloped Ring */}
         <path d={d} fill={style.ring} />
         {/* Inner Solid Disc */}

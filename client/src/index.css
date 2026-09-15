@@ -25,7 +25,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF8F3;
+  background: #FDF6E9;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -35,4 +35,92 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #B8B0A2;
+}
+
+/* ==========================================================================
+   Motion & Transition System (modern-web-guidance compliant)
+   ========================================================================== */
+
+/* Button Shimmer Sweep Effect on Hover */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 65%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.btn-shimmer:hover::after {
+  transform: translateX(100%);
+}
+
+/* Native CSS View Timeline Scroll-Driven Animations */
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes revealUp {
+      from {
+        opacity: 0;
+        transform: translateY(32px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes revealScale {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .scroll-reveal-up {
+      animation: revealUp linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 30%;
+    }
+
+    .scroll-reveal-scale {
+      animation: revealScale linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 35%;
+    }
+  }
+}
+
+/* Reduced Motion Overrides */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .btn-shimmer::after {
+    display: none;
+  }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Leaf, ShieldCheck, Sparkles, CheckCircle2, Award } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import ScrollReveal from '../common/ScrollReveal';
 
 export const WhyTikhoriSection = ({ content }) => {
   const { t, language } = useLanguage();
@@ -33,10 +34,10 @@ export const WhyTikhoriSection = ({ content }) => {
     },
     {
       icon: 'Sparkles',
-      title: { en: 'Zero Added Flavours & Colours', hi: 'शून्य कृत्रिम रंग व स्वाद' },
+      title: { en: 'Zero Added Colours', hi: 'शून्य कृत्रिम रंग' },
       description: {
         en: 'Letting the natural aroma, vibrant hue, and authentic pungency of each spice speak for itself.',
-        hi: 'मसालों का प्राकृतिक रंग और सौंधी खुशबू बिना किसी कृत्रिम रंग या फ्लेवर के।'
+        hi: 'मसालों का प्राकृतिक रंग और सौंधी खुशबू बिना किसी कृत्रिम रंग या मिलावट के।'
       }
     },
     {
@@ -63,44 +64,47 @@ export const WhyTikhoriSection = ({ content }) => {
     <section id="why-tikhori" className="py-20 md:py-28 bg-[#FDF6E9] relative border-b border-[#E8DFCF]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-black text-[#1B4D2E] uppercase tracking-[0.2em] bg-[#1B4D2E]/10 px-3.5 py-1.5 rounded-full border border-[#1B4D2E]/20">
-            {t(whyData.tagline, language === 'hi' ? 'टिखोरी की विशेषता' : 'THE TIKHORI DIFFERENCE')}
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[#1B4D2E] tracking-tight">
-            {t(whyData.title, 'Why Tikhori Foods?')}
-          </h2>
-          <p className="text-base sm:text-lg text-[#5A483E] leading-relaxed">
-            {t(
-              whyData.subtitle,
-              language === 'hi'
-                ? 'हर चम्मच में है प्रामाणिकता, बेमिसाल शुद्धता और भारतीय मसालों की समृद्ध परंपरा।'
-                : 'Every spoonful is grounded in authenticity, uncompromising purity, and traditional stone-ground milling.'
-            )}
-          </p>
-        </div>
+        <ScrollReveal animation="fade-up" delay={50}>
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span className="text-xs font-black text-[#1B4D2E] uppercase tracking-[0.2em] bg-[#1B4D2E]/10 px-3.5 py-1.5 rounded-full border border-[#1B4D2E]/20">
+              {t(whyData.tagline, language === 'hi' ? 'टिखोरी की विशेषता' : 'THE TIKHORI DIFFERENCE')}
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[#1B4D2E] tracking-tight">
+              {t(whyData.title, 'Why Tikhori Foods?')}
+            </h2>
+            <p className="text-base sm:text-lg text-[#5A483E] leading-relaxed">
+              {t(
+                whyData.subtitle,
+                language === 'hi'
+                  ? 'हर चम्मच में है प्रामाणिकता, बेमिसाल शुद्धता और भारतीय मसालों की समृद्ध परंपरा।'
+                  : 'Every spoonful is grounded in authenticity, uncompromising purity, and traditional stone-ground milling.'
+              )}
+            </p>
+          </div>
+        </ScrollReveal>
 
-        {/* 5 Value Cards Grid */}
+        {/* 5 Value Cards Grid with Staggered ScrollReveal & Spring Physics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {points.map((pt, idx) => {
             const IconComp = iconMap[pt.icon] || Leaf;
             return (
-              <div
-                key={idx}
-                className="p-8 rounded-3xl bg-white border-2 border-[#E8DFCF] hover:border-[#1B4D2E] shadow-soft hover:shadow-xl transition-all duration-300 flex flex-col group"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-[#1B4D2E] text-[#F2C230] flex items-center justify-center mb-6 shadow-sm group-hover:scale-105 transition-transform">
-                  <IconComp className="w-7 h-7" />
+              <ScrollReveal key={idx} animation="fade-up" delay={idx * 100} duration={600}>
+                <div
+                  className="p-8 rounded-3xl bg-white border-2 border-[#E8DFCF] hover:border-[#1B4D2E] shadow-soft hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 ease-spring flex flex-col group h-full"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-[#1B4D2E] text-[#F2C230] flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <IconComp className="w-7 h-7" />
+                  </div>
+
+                  <h3 className="font-display text-xl font-black text-[#1B4D2E] mb-2 group-hover:text-[#D6301F] transition-colors">
+                    {t(pt.title, '')}
+                  </h3>
+
+                  <p className="text-sm text-[#5A483E] leading-relaxed">
+                    {t(pt.description, '')}
+                  </p>
                 </div>
-
-                <h3 className="font-display text-xl font-black text-[#1B4D2E] mb-2">
-                  {t(pt.title, '')}
-                </h3>
-
-                <p className="text-sm text-[#5A483E] leading-relaxed">
-                  {t(pt.description, '')}
-                </p>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, HeartHandshake, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Sparkles, Award, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import Badge from '../common/Badge';
 
@@ -38,7 +38,9 @@ export const HeroSection = ({ content }) => {
             <p className="text-base sm:text-lg text-brand-stone leading-relaxed max-w-2xl mx-auto lg:mx-0">
               {t(
                 hero.description,
-                'Tikhori Foods brings you single-origin, stemless, and unadulterated spices from India’s heartlands while championing rural women entrepreneurs and grassroots micro-enterprises.'
+                language === 'hi'
+                  ? 'टिखोरी फूड्स आपके लिए लाता है भारत की उत्तम कृषि भूमि से चुने हुए शुद्ध, डंठल-रहित और बिना किसी मिलावट के जैविक मसाले, पारंपरिक धीमी पिसाई से तैयार ताकि हर भोजन बने लाजवाब।'
+                  : 'Tikhori Foods brings you single-origin, stemless, and unadulterated spices from India’s heartlands, crafted with low-temperature slow grinding to preserve natural aroma and wholesome nutrition.'
               )}
             </p>
 
@@ -53,11 +55,11 @@ export const HeroSection = ({ content }) => {
               </a>
 
               <Link
-                to="/women-empowerment"
+                to="/about"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white border border-brand-border text-brand-charcoal text-sm font-semibold tracking-wide hover:bg-brand-sand transition-all shadow-sm active:scale-95"
               >
-                <HeartHandshake className="w-4 h-4 text-brand-red" />
-                <span>{t(hero.ctaSecondary, tr('ctaMission'))}</span>
+                <Award className="w-4 h-4 text-brand-gold-dark" />
+                <span>{t(hero.ctaSecondary, language === 'hi' ? 'हमारी विरासत' : 'Our Heritage')}</span>
               </Link>
             </div>
 

@@ -8,7 +8,7 @@ import HeroSection from '../../components/public/HeroSection';
 import BrandTrustStrip from '../../components/public/BrandTrustStrip';
 import ProductCard from '../../components/public/ProductCard';
 import WhyTikhoriSection from '../../components/public/WhyTikhoriSection';
-import WomenEmpowermentSection from '../../components/public/WomenEmpowermentSection';
+import PurityPromiseSection from '../../components/public/PurityPromiseSection';
 import PromotionalBanner from '../../components/public/PromotionalBanner';
 import QualityProcessSection from '../../components/public/QualityProcessSection';
 import AboutSection from '../../components/public/AboutSection';
@@ -18,7 +18,6 @@ export const HomePage = () => {
   const { tr, language } = useLanguage();
   const [products, setProducts] = useState([]);
   const [content, setContent] = useState({});
-  const [entrepreneurs, setEntrepreneurs] = useState([]);
   const [banner, setBanner] = useState(null);
   const [settings, setSettings] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -26,10 +25,9 @@ export const HomePage = () => {
   useEffect(() => {
     const fetchHomeData = async () => {
       try {
-        const [prodRes, contentRes, entreRes, bannerRes, settRes] = await Promise.allSettled([
+        const [prodRes, contentRes, bannerRes, settRes] = await Promise.allSettled([
           api.get('/products'),
           api.get('/content'),
-          api.get('/entrepreneurs'),
           api.get('/banners'),
           api.get('/settings')
         ]);
@@ -39,9 +37,6 @@ export const HomePage = () => {
         }
         if (contentRes.status === 'fulfilled' && contentRes.value.data?.success) {
           setContent(contentRes.value.data.data);
-        }
-        if (entreRes.status === 'fulfilled' && entreRes.value.data?.success) {
-          setEntrepreneurs(entreRes.value.data.data);
         }
         if (bannerRes.status === 'fulfilled' && bannerRes.value.data?.success) {
           // Take the first active banner if available
@@ -111,8 +106,8 @@ export const HomePage = () => {
       {/* 5. Promotional Poster/Banner (if active) */}
       {banner && <PromotionalBanner banner={banner} />}
 
-      {/* 6. Women Empowerment & Rural Entrepreneurship */}
-      <WomenEmpowermentSection content={content} entrepreneurs={entrepreneurs} />
+      {/* 6. Purity Promise & Quality Standards */}
+      <PurityPromiseSection />
 
       {/* 7. Quality & Process Journey */}
       <QualityProcessSection content={content} />

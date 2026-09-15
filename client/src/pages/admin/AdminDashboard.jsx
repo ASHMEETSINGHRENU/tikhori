@@ -18,7 +18,6 @@ export const AdminDashboard = () => {
     totalProducts: 0,
     activeProducts: 0,
     totalUsers: 0,
-    totalEntrepreneurs: 0,
     activeBanners: 0,
     totalEnquiries: 0,
     unreadEnquiries: 0
@@ -29,17 +28,15 @@ export const AdminDashboard = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const [prodRes, userRes, entreRes, bannerRes, enqRes] = await Promise.allSettled([
+        const [prodRes, userRes, bannerRes, enqRes] = await Promise.allSettled([
           api.get('/products/admin/all'),
           api.get('/users'),
-          api.get('/entrepreneurs/admin/all'),
           api.get('/banners/admin/all'),
           api.get('/contact/admin/all')
         ]);
 
         const products = prodRes.status === 'fulfilled' ? prodRes.value.data?.data || [] : [];
         const users = userRes.status === 'fulfilled' ? userRes.value.data?.data || [] : [];
-        const entrepreneurs = entreRes.status === 'fulfilled' ? entreRes.value.data?.data || [] : [];
         const banners = bannerRes.status === 'fulfilled' ? bannerRes.value.data?.data || [] : [];
         const enquiries = enqRes.status === 'fulfilled' ? enqRes.value.data?.data || [] : [];
 
@@ -47,7 +44,6 @@ export const AdminDashboard = () => {
           totalProducts: products.length,
           activeProducts: products.filter((p) => p.isActive).length,
           totalUsers: users.length,
-          totalEntrepreneurs: entrepreneurs.length,
           activeBanners: banners.filter((b) => b.isActive).length,
           totalEnquiries: enquiries.length,
           unreadEnquiries: enquiries.filter((e) => e.status === 'new').length
@@ -74,12 +70,12 @@ export const AdminDashboard = () => {
       link: '/admin/products'
     },
     {
-      title: 'Women Entrepreneurs',
-      value: stats.totalEntrepreneurs,
-      subtext: 'Grassroots micro-enterprises',
-      icon: HeartHandshake,
-      color: 'text-amber-600 bg-amber-50 border-amber-200',
-      link: '/admin/entrepreneurs'
+      title: 'Registered Users',
+      value: stats.totalUsers,
+      subtext: 'Client & buyer accounts',
+      icon: Users,
+      color: 'text-blue-600 bg-blue-50 border-blue-200',
+      link: '/admin/users'
     },
     {
       title: 'Active Banners',

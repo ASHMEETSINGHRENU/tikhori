@@ -1,5 +1,5 @@
 import React from 'react';
-import { Leaf, ShieldCheck, Sparkles, CheckCircle2, HeartHandshake } from 'lucide-react';
+import { Leaf, ShieldCheck, Sparkles, CheckCircle2, Award } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 
 export const BrandTrustStrip = () => {
@@ -27,9 +27,9 @@ export const BrandTrustStrip = () => {
       subtitle: language === 'hi' ? 'सावधानीपूर्वक छंटाई' : 'Meticulously destemmed'
     },
     {
-      icon: HeartHandshake,
-      title: language === 'hi' ? 'महिला उद्यमिता' : 'Women Empowerment',
-      subtitle: language === 'hi' ? 'ग्रामीण स्वावलंबन' : 'Grassroots micro-enterprises'
+      icon: Award,
+      title: language === 'hi' ? 'पारंपरिक धीमी पिसाई' : 'Traditional Stone-Ground',
+      subtitle: language === 'hi' ? 'प्राकृतिक खुशबू व स्वाद' : 'Slow-milled aroma retention'
     }
   ];
 

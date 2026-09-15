@@ -35,7 +35,9 @@ export const Footer = ({ settings, content }) => {
             <p className="text-sm text-brand-stone leading-relaxed">
               {t(
                 footerContent.brandStatement,
-                'Pure, 100% organic Indian spices crafted with traditional integrity while empowering grassroots women entrepreneurs and small businesses in rural communities.'
+                language === 'hi'
+                  ? 'शुद्ध, १००% जैविक भारतीय मसाले, पारंपरिक तरीके से धीमी पिसाई और बिना किसी मिलावट के तैयार।'
+                  : 'Pure, 100% organic Indian spices crafted with traditional integrity, slow stone-ground perfection, and uncompromised purity for authentic home cooking.'
               )}
             </p>
 
@@ -61,8 +63,8 @@ export const Footer = ({ settings, content }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/women-empowerment" className="text-brand-stone hover:text-brand-forest transition-colors">
-                  {tr('navEmpowerment')}
+                <Link to="/quality" className="text-brand-stone hover:text-brand-forest transition-colors">
+                  {tr('navQuality')}
                 </Link>
               </li>
               <li>
@@ -151,7 +153,7 @@ export const Footer = ({ settings, content }) => {
             <span className="inline-flex items-center gap-1 text-brand-stone">
               <span>{language === 'hi' ? 'निर्मित गर्व से' : 'Crafted with passion for'}</span>
               <Heart className="w-3.5 h-3.5 text-brand-red fill-brand-red inline" />
-              <span>{language === 'hi' ? 'भारत में' : 'Rural India'}</span>
+              <span>{language === 'hi' ? 'प्रामाणिक स्वाद' : 'Authentic Indian Taste'}</span>
             </span>
 
             <Link

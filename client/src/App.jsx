@@ -13,7 +13,7 @@ import Footer from './components/common/Footer';
 import HomePage from './pages/public/HomePage';
 import ProductsPage from './pages/public/ProductsPage';
 import ProductDetailPage from './pages/public/ProductDetailPage';
-import WomenEmpowermentPage from './pages/public/WomenEmpowermentPage';
+import QualityPage from './pages/public/QualityPage';
 import AboutPage from './pages/public/AboutPage';
 import ContactPage from './pages/public/ContactPage';
 import UserLoginPage from './pages/public/UserLoginPage';
@@ -27,7 +27,6 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminProductForm from './pages/admin/AdminProductForm';
 import AdminUsers from './pages/admin/AdminUsers';
-import AdminEntrepreneurs from './pages/admin/AdminEntrepreneurs';
 import AdminBanners from './pages/admin/AdminBanners';
 import AdminContent from './pages/admin/AdminContent';
 import AdminEnquiries from './pages/admin/AdminEnquiries';
@@ -91,7 +90,7 @@ export const App = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/products" element={<ProductsPage />} />
                 <Route path="/products/:slug" element={<ProductDetailPage />} />
-                <Route path="/women-empowerment" element={<WomenEmpowermentPage />} />
+                <Route path="/quality" element={<QualityPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/login" element={<UserLoginPage />} />
@@ -110,7 +109,6 @@ export const App = () => {
                   <Route path="products/new" element={<AdminProductForm />} />
                   <Route path="products/:id/edit" element={<AdminProductForm />} />
                   <Route path="users" element={<AdminUsers />} />
-                  <Route path="entrepreneurs" element={<AdminEntrepreneurs />} />
                   <Route path="banners" element={<AdminBanners />} />
                   <Route path="content" element={<AdminContent />} />
                   <Route path="enquiries" element={<AdminEnquiries />} />

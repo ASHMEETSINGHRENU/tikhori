@@ -367,7 +367,7 @@ export const AdminBanners = () => {
                       type="text"
                       value={formData.subtitleEn}
                       onChange={(e) => setFormData({ ...formData, subtitleEn: e.target.value })}
-                      placeholder="e.g. 100% Organic • Chemical Free • Empowering Rural Women"
+                      placeholder="e.g. 100% Organic • Chemical Free • Traditional Stone-Ground"
                       className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 outline-none"
                     />
                   </div>

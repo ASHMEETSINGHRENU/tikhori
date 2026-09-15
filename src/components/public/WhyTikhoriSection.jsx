@@ -1,5 +1,5 @@
 import React from 'react';
-import { Leaf, ShieldCheck, Sparkles, CheckCircle2, HeartHandshake } from 'lucide-react';
+import { Leaf, ShieldCheck, Sparkles, CheckCircle2, Award } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 
 export const WhyTikhoriSection = ({ content }) => {
@@ -11,7 +11,7 @@ export const WhyTikhoriSection = ({ content }) => {
     ShieldCheck,
     Sparkles,
     CheckCircle2,
-    HeartHandshake
+    Award
   };
 
   const defaultPoints = [
@@ -48,11 +48,11 @@ export const WhyTikhoriSection = ({ content }) => {
       }
     },
     {
-      icon: 'HeartHandshake',
-      title: { en: 'Crafted With Purpose', hi: 'सार्थक उद्देश्य' },
+      icon: 'Award',
+      title: { en: 'Traditional Stone Grinding', hi: 'पारंपरिक धीमी पिसाई' },
       description: {
-        en: 'Connecting premium kitchen essentials with meaningful rural livelihoods and women empowerment.',
-        hi: 'रसोई के शुद्ध स्वाद को ग्रामीण महिलाओं की आत्मनिर्भरता और गरिमा से जोड़ना।'
+        en: 'Slow, low-temperature stone milling that preserves natural essential oils, vibrant color, and authentic aroma.',
+        hi: 'पारंपरिक धीमी पिसाई जिससे प्राकृतिक सुगंध, तेल और असली स्वाद पूरी तरह सुरक्षित रहते हैं।'
       }
     }
   ];
@@ -73,7 +73,9 @@ export const WhyTikhoriSection = ({ content }) => {
           <p className="text-base sm:text-lg text-brand-stone leading-relaxed">
             {t(
               whyData.subtitle,
-              'Every spoonful is grounded in authenticity, uncompromising purity, and grassroots empowerment.'
+              language === 'hi'
+                ? 'हर चम्मच में है प्रामाणिकता, बेमिसाल शुद्धता और भारतीय मसालों की समृद्ध परंपरा।'
+                : 'Every spoonful is grounded in authenticity, uncompromising purity, and India’s rich culinary heritage.'
             )}
           </p>
         </div>

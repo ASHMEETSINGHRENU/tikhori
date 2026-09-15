@@ -73,7 +73,7 @@ export const AdminContent = () => {
   const sectionsList = [
     { id: 'hero', name: 'Hero Section', icon: Sparkles },
     { id: 'whyTikhori', name: 'Why Tikhori Section', icon: Award },
-    { id: 'empowerment', name: 'Women Empowerment', icon: HeartHandshake },
+    { id: 'purityPromise', name: 'Purity Standards', icon: Award },
     { id: 'qualityProcess', name: 'Quality & Process', icon: Layers },
     { id: 'about', name: 'About Brand', icon: FileText },
     { id: 'footer', name: 'Footer Info', icon: FileText }
@@ -289,43 +289,43 @@ export const AdminContent = () => {
             </div>
           )}
 
-          {/* Section: EMPOWERMENT */}
-          {activeSection === 'empowerment' && (
+          {/* Section: PURITY PROMISE */}
+          {activeSection === 'purityPromise' && (
             <div className={`space-y-4 ${activeLang === 'hi' ? 'font-devanagari' : ''}`}>
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Empowerment Headline ({activeLang.toUpperCase()})
+                  Purity Headline ({activeLang.toUpperCase()})
                 </label>
                 <input
                   type="text"
                   value={currentSectionData.title?.[activeLang] || ''}
-                  onChange={(e) => handleUpdate('empowerment', 'title', activeLang, e.target.value)}
-                  placeholder="Empowering Women. Strengthening Rural Businesses."
+                  onChange={(e) => handleUpdate('purityPromise', 'title', activeLang, e.target.value)}
+                  placeholder="Four Pillars of Uncompromising Purity"
                   className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 outline-none font-serif text-base"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Story Subheading ({activeLang.toUpperCase()})
+                  Purity Subheading ({activeLang.toUpperCase()})
                 </label>
                 <input
                   type="text"
                   value={currentSectionData.heading?.[activeLang] || ''}
-                  onChange={(e) => handleUpdate('empowerment', 'heading', activeLang, e.target.value)}
-                  placeholder="More Than Spices. A Purpose to Empower."
+                  onChange={(e) => handleUpdate('purityPromise', 'heading', activeLang, e.target.value)}
+                  placeholder="Crafted Clean. Ground Pure. Packed Fresh."
                   className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 outline-none"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Mission Story ({activeLang.toUpperCase()})
+                  Purity Promise Narrative ({activeLang.toUpperCase()})
                 </label>
                 <textarea
                   rows={5}
                   value={currentSectionData.story?.[activeLang] || ''}
-                  onChange={(e) => handleUpdate('empowerment', 'story', activeLang, e.target.value)}
+                  onChange={(e) => handleUpdate('purityPromise', 'story', activeLang, e.target.value)}
                   className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 outline-none resize-none"
                 ></textarea>
               </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, ShieldCheck, Heart } from 'lucide-react';
+import { Sparkles, ShieldCheck, Award } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 
 export const AboutSection = ({ content }) => {
@@ -17,13 +17,15 @@ export const AboutSection = ({ content }) => {
             </span>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-charcoal leading-tight">
-              {t(about.title, 'Authentic Spices. Clean Ingredients. Social Mission.')}
+              {t(about.title, language === 'hi' ? 'प्रामाणिक मसाले। शुद्ध सामग्री। बेमिसाल शुद्धता।' : 'Authentic Spices. Clean Ingredients. Unmatched Purity.')}
             </h2>
 
             <p className="text-base sm:text-lg text-brand-stone leading-relaxed">
               {t(
                 about.story,
-                'Tikhori Foods was founded with a single mission: to return Indian cooking to its purest roots while creating meaningful livelihoods for rural women. We reject shortcuts, artificial enhancements, and chemical additives in favor of authentic aroma, rich flavors, and ethical practices.'
+                language === 'hi'
+                  ? 'टिखोरी फूड्स की शुरुआत एक स्पष्ट संकल्प के साथ हुई: भारतीय रसोई को उसकी प्राचीन शुद्धता और प्रामाणिक स्वाद से जोड़ना। हम रसायनों, कृत्रिम रंगों और शॉर्टकट को नकारते हुए पारंपरिक धीमी पिसाई और असली खुशबू को प्राथमिकता देते हैं।'
+                  : 'Tikhori Foods was founded with a single mission: to return Indian cooking to its purest roots. We reject shortcuts, artificial enhancements, and chemical additives in favor of authentic aroma, rich natural flavors, slow stone grinding, and honest practices.'
               )}
             </p>
 
@@ -34,7 +36,9 @@ export const AboutSection = ({ content }) => {
               <p className="text-sm text-brand-stone leading-relaxed">
                 {t(
                   about.philosophy,
-                  'We believe good food starts with honest farming, careful processing, and community respect. Every blend we craft reflects patience, purity, and our profound love for India’s spice heritage.'
+                  language === 'hi'
+                    ? 'हमारा मानना है कि अच्छा भोजन ईमानदार प्राकृतिक खेती, स्वच्छ प्रसंस्करण और मसालों के प्रति सम्मान से शुरू होता है। हर मसाला हमारी शुद्धता की प्रतिबद्धता को दर्शाता है।'
+                    : 'We believe good food starts with honest farming, careful processing, and culinary integrity. Every blend we craft reflects patience, purity, and our profound love for India’s spice heritage.'
                 )}
               </p>
             </div>
@@ -68,8 +72,8 @@ export const AboutSection = ({ content }) => {
                   <span>{language === 'hi' ? 'शून्य कृत्रिम रंग या फ्लेवर' : 'Zero Added Colours & Flavours'}</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <Heart className="w-4 h-4 text-brand-red shrink-0" />
-                  <span>{language === 'hi' ? 'ग्रामीण महिला उद्यमिता को संबल' : 'Rooted in Rural Women Empowerment'}</span>
+                  <Award className="w-4 h-4 text-brand-forest shrink-0" />
+                  <span>{language === 'hi' ? 'पारंपरिक धीमी पत्थर पिसाई' : 'Traditional Slow Stone-Ground'}</span>
                 </div>
               </div>
             </div>

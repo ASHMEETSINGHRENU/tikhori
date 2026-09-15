@@ -57,7 +57,7 @@ export const Navbar = () => {
     { name: tr('navHome'), path: '/' },
     { name: tr('navProducts'), path: '/products' },
     { name: tr('navWhyTikhori'), path: '/#why-tikhori' },
-    { name: tr('navEmpowerment'), path: '/women-empowerment' },
+    { name: tr('navQuality'), path: '/quality' },
     { name: tr('navAbout'), path: '/about' },
     { name: tr('navContact'), path: '/contact' }
   ];

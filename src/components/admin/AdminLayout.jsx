@@ -31,7 +31,6 @@ export const AdminLayout = () => {
     { name: 'Dashboard', path: '/admin/dashboard', icon: LayoutDashboard },
     { name: 'Products', path: '/admin/products', icon: Package },
     { name: 'Users / Clients', path: '/admin/users', icon: Users },
-    { name: 'Women Entrepreneurs', path: '/admin/entrepreneurs', icon: HeartHandshake },
     { name: 'Promotional Banners', path: '/admin/banners', icon: ImageIcon },
     { name: 'Website Content (CMS)', path: '/admin/content', icon: FileText },
     { name: 'Contact Enquiries', path: '/admin/enquiries', icon: Mail },

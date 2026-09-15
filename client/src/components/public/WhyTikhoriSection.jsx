@@ -60,22 +60,22 @@ export const WhyTikhoriSection = ({ content }) => {
   const points = whyData.points && whyData.points.length > 0 ? whyData.points : defaultPoints;
 
   return (
-    <section id="why-tikhori" className="py-20 bg-brand-ivory relative">
+    <section id="why-tikhori" className="py-20 md:py-28 bg-[#FDF6E9] relative border-b border-[#E8DFCF]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-semibold text-brand-forest uppercase tracking-widest bg-brand-forest/10 px-3 py-1 rounded-full border border-brand-forest/20">
-            {t(whyData.tagline, language === 'hi' ? 'टिखोरी की विशेषता' : 'The Tikhori Difference')}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <span className="text-xs font-black text-[#1B4D2E] uppercase tracking-[0.2em] bg-[#1B4D2E]/10 px-3.5 py-1.5 rounded-full border border-[#1B4D2E]/20">
+            {t(whyData.tagline, language === 'hi' ? 'टिखोरी की विशेषता' : 'THE TIKHORI DIFFERENCE')}
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-brand-charcoal mt-3 mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[#1B4D2E] tracking-tight">
             {t(whyData.title, 'Why Tikhori Foods?')}
           </h2>
-          <p className="text-base sm:text-lg text-brand-stone leading-relaxed">
+          <p className="text-base sm:text-lg text-[#5A483E] leading-relaxed">
             {t(
               whyData.subtitle,
               language === 'hi'
                 ? 'हर चम्मच में है प्रामाणिकता, बेमिसाल शुद्धता और भारतीय मसालों की समृद्ध परंपरा।'
-                : 'Every spoonful is grounded in authenticity, uncompromising purity, and India’s rich culinary heritage.'
+                : 'Every spoonful is grounded in authenticity, uncompromising purity, and traditional stone-ground milling.'
             )}
           </p>
         </div>
@@ -87,17 +87,17 @@ export const WhyTikhoriSection = ({ content }) => {
             return (
               <div
                 key={idx}
-                className="p-8 rounded-3xl bg-white border border-brand-border/80 shadow-soft hover:shadow-soft-lg hover:border-brand-forest/30 transition-all duration-300 flex flex-col"
+                className="p-8 rounded-3xl bg-white border-2 border-[#E8DFCF] hover:border-[#1B4D2E] shadow-soft hover:shadow-xl transition-all duration-300 flex flex-col group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-brand-sand flex items-center justify-center text-brand-forest mb-6 border border-brand-border/60">
+                <div className="w-14 h-14 rounded-2xl bg-[#1B4D2E] text-[#F2C230] flex items-center justify-center mb-6 shadow-sm group-hover:scale-105 transition-transform">
                   <IconComp className="w-7 h-7" />
                 </div>
 
-                <h3 className="font-serif text-xl font-bold text-brand-charcoal mb-3">
+                <h3 className="font-display text-xl font-black text-[#1B4D2E] mb-2">
                   {t(pt.title, '')}
                 </h3>
 
-                <p className="text-sm text-brand-stone leading-relaxed">
+                <p className="text-sm text-[#5A483E] leading-relaxed">
                   {t(pt.description, '')}
                 </p>
               </div>

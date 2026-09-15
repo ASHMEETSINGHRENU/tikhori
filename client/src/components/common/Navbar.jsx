@@ -74,10 +74,10 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-200 border-b ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
         scrolled
-          ? 'bg-white/98 backdrop-blur-md border-brand-border shadow-soft py-3'
-          : 'bg-brand-ivory/95 backdrop-blur-sm border-brand-border/80 py-4'
+          ? 'bg-[#FDF6E9]/95 backdrop-blur-md border-[#E8DFCF] py-2.5 shadow-soft'
+          : 'bg-[#FDF6E9]/95 backdrop-blur-sm border-[#E8DFCF] py-3.5'
       }`}
     >
       <div className="w-full max-w-[1480px] mx-auto px-4 sm:px-8 lg:px-12">
@@ -92,16 +92,16 @@ export const Navbar = () => {
                 className="h-10 w-10 sm:h-12 sm:w-12 object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-xs"
               />
               <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-gold opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-gold"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F2C230] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F2C230]"></span>
               </span>
             </div>
             <div className="flex flex-col">
-              <span className="font-serif font-bold text-xl sm:text-2xl text-brand-forest tracking-tight leading-none group-hover:text-brand-forest-light transition-colors">
+              <span className="font-display font-black text-xl sm:text-2xl text-[#1B4D2E] tracking-tight leading-none group-hover:text-[#25663D] transition-colors">
                 Tikhori Foods
               </span>
-              <span className="text-[10px] sm:text-[11px] font-bold text-brand-gold-dark tracking-wider uppercase mt-1 flex items-center gap-1">
-                <Sparkles className="w-2.5 h-2.5 text-brand-gold" />
+              <span className="text-[10px] sm:text-[11px] font-black text-[#D4A21A] tracking-[0.2em] uppercase mt-1 flex items-center gap-1">
+                <Sparkles className="w-2.5 h-2.5 text-[#F2C230]" />
                 {tr('tagline')}
               </span>
             </div>
@@ -248,9 +248,9 @@ export const Navbar = () => {
             {/* Explore Spices CTA */}
             <Link
               to="/products"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-brand-forest text-white text-xs font-bold tracking-wide hover:bg-brand-forest-light transition-all shadow-sm hover:shadow active:scale-95 shrink-0"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#D6301F] text-[#FDF6E9] text-xs font-black tracking-wider uppercase hover:bg-[#B72416] transition-all shadow-sm hover:shadow active:scale-95 shrink-0"
             >
-              <span>{tr('ctaExplore')}</span>
+              <span>{language === 'hi' ? 'दुकान' : 'SHOP NOW'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
 

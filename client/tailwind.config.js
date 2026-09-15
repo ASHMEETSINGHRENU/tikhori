@@ -8,32 +8,34 @@ export default {
     extend: {
       colors: {
         brand: {
-          ivory: '#FAF8F3',
-          sand: '#F3EFE6',
-          cream: '#FFFFFF',
-          forest: '#204B26',
-          'forest-dark': '#132F18',
-          'forest-light': '#2D6635',
-          gold: '#D97706',
-          'gold-dark': '#B45309',
-          'gold-light': '#FEF3C7',
-          red: '#991B1B',
-          'red-dark': '#7F1D1D',
-          charcoal: '#1C1917',
-          stone: '#57534E',
-          muted: '#8C857B',
-          border: '#E7E2D7'
+          forest: '#1B4D2E',
+          'forest-dark': '#123620',
+          'forest-light': '#25663D',
+          gold: '#F2C230',
+          'gold-dark': '#D4A21A',
+          'gold-light': '#FDF3CF',
+          red: '#D6301F',
+          'red-dark': '#B72416',
+          cream: '#FDF6E9',
+          brown: '#2B1D14',
+          sand: '#F5EDE1',
+          ivory: '#FAF4EB',
+          charcoal: '#2B1D14',
+          stone: '#5A483E',
+          muted: '#8C7C72',
+          border: '#E8DFCF'
         }
       },
       fontFamily: {
+        display: ['"Fraunces"', '"Playfair Display"', 'serif'],
+        serif: ['"Fraunces"', '"Playfair Display"', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-        devanagari: ['"Noto Sans Devanagari"', '"Plus Jakarta Sans"', 'sans-serif'],
-        serif: ['"Playfair Display"', 'serif']
+        devanagari: ['"Noto Sans Devanagari"', '"Plus Jakarta Sans"', 'sans-serif']
       },
       boxShadow: {
-        'soft': '0 4px 20px -2px rgba(28, 25, 23, 0.05), 0 2px 6px -1px rgba(28, 25, 23, 0.03)',
-        'soft-lg': '0 10px 30px -4px rgba(28, 25, 23, 0.08), 0 4px 12px -2px rgba(28, 25, 23, 0.04)',
-        'gold-glow': '0 0 25px -5px rgba(217, 119, 6, 0.25)'
+        'soft': '0 4px 20px -2px rgba(43, 29, 20, 0.05), 0 2px 6px -1px rgba(43, 29, 20, 0.03)',
+        'soft-lg': '0 10px 30px -4px rgba(43, 29, 20, 0.08), 0 4px 12px -2px rgba(43, 29, 20, 0.04)',
+        'gold-glow': '0 0 25px -5px rgba(242, 194, 48, 0.35)'
       }
     },
   },

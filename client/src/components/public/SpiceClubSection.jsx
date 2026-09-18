@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, CheckCircle2, Gift, Award, Flame } from 'lucide-react';
+import { ArrowRight, Sparkles, CheckCircle2, Gift, Flame } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import ScallopedBadge from '../common/ScallopedBadge';
 import ScrollReveal from '../common/ScrollReveal';
 
 /**
  * Section 5 — Loyalty / Spice Club Perks
- * Reference: DOCS/tikhori-foods-design-spec.md
- * Enhanced with pulse micro-interactions, spring voucher cards, and shimmer CTAs.
+ * Enriched with the Indian culinary feast spread artwork:
+ * /assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_ptxa53ptxa53ptxa.png
  */
 export const SpiceClubSection = () => {
   const { language } = useLanguage();
   const [email, setEmail] = useState('');
   const [joined, setJoined] = useState(false);
+
+  const feastArtworkSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_ptxa53ptxa53ptxa.png');
 
   const handleJoin = (e) => {
     e.preventDefault();
@@ -23,11 +25,10 @@ export const SpiceClubSection = () => {
 
   return (
     <section className="w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[520px]">
+      <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[540px]">
         {/* Left Split Block: Forest Green (#1B4D2E) */}
         <div className="lg:col-span-7 bg-[#1B4D2E] text-[#FDF6E9] p-8 sm:p-14 lg:p-20 flex flex-col justify-center space-y-6">
           <ScrollReveal animation="fade-up" delay={50}>
-            {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F2C230]/20 border border-[#F2C230]/30 text-[#F2C230] text-xs font-black tracking-[0.2em] uppercase w-fit">
               <Flame className="w-3.5 h-3.5 text-[#F2C230]" />
               <span>{language === 'hi' ? 'विशेष क्लब' : 'THE SPICE CLUB'}</span>
@@ -35,7 +36,6 @@ export const SpiceClubSection = () => {
           </ScrollReveal>
 
           <ScrollReveal animation="fade-up" delay={150}>
-            {/* Headline */}
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[#FDF6E9] tracking-tight leading-[1.12]">
               {language === 'hi' ? (
                 <>
@@ -57,7 +57,7 @@ export const SpiceClubSection = () => {
             </p>
           </ScrollReveal>
 
-          {/* 3 Perks List with Staggered ScrollReveal */}
+          {/* 3 Perks List */}
           <div className="space-y-3 pt-2">
             <ScrollReveal animation="fade-up" delay={300}>
               <div className="flex items-start gap-3 group">
@@ -121,15 +121,24 @@ export const SpiceClubSection = () => {
           </ScrollReveal>
         </div>
 
-        {/* Right Split Block: Golden Yellow (#F2C230) */}
-        <div className="lg:col-span-5 bg-[#F2C230] text-[#2B1D14] p-8 sm:p-14 lg:p-16 flex flex-col justify-center items-center relative overflow-hidden border-t lg:border-t-0 lg:border-l border-[#D4A21A]">
-          {/* Subtle background ring */}
-          <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full border-4 border-[#D4A21A]/30 pointer-events-none animate-spin-slow"></div>
+        {/* Right Split Block: Golden Yellow with Feast Spread Visual */}
+        <div className="lg:col-span-5 bg-[#F2C230] text-[#2B1D14] p-6 sm:p-10 lg:p-12 flex flex-col justify-center items-center relative overflow-hidden border-t lg:border-t-0 lg:border-l border-[#D4A21A] space-y-6">
+          {/* Feast Visual Frame */}
+          <ScrollReveal animation="fade-left" delay={150} className="w-full max-w-sm">
+            <div className="rounded-2xl overflow-hidden shadow-lg border-2 border-[#1B4D2E]/30 bg-white">
+              <img
+                src={feastArtworkSrc}
+                alt="Authentic Indian Feast with Tikhori Spices"
+                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700 ease-spring"
+                loading="lazy"
+              />
+            </div>
+          </ScrollReveal>
 
-          <ScrollReveal animation="scale" delay={200}>
-            <div className="w-full max-w-sm bg-[#FDF6E9] p-8 rounded-3xl border-2 border-[#1B4D2E] shadow-2xl hover:shadow-[0_25px_60px_rgba(27,77,46,0.25)] hover:-translate-y-1 transition-all duration-500 relative space-y-6 text-center">
-              {/* Scalloped VIP Stamp Badge with Hover Spring */}
-              <div className="absolute -top-7 right-6">
+          {/* VIP Reward Card */}
+          <ScrollReveal animation="scale" delay={250} className="w-full max-w-sm">
+            <div className="bg-[#FDF6E9] p-6 sm:p-7 rounded-3xl border-2 border-[#1B4D2E] shadow-xl relative space-y-4 text-center">
+              <div className="absolute -top-6 right-6">
                 <ScallopedBadge
                   textTop="CLUB"
                   textMain="VIP"
@@ -140,18 +149,14 @@ export const SpiceClubSection = () => {
                 />
               </div>
 
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#1B4D2E] text-[#F2C230] mx-auto shadow-md animate-pulse-subtle">
-                <Gift className="w-7 h-7" />
-              </div>
-
               <div>
                 <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D6301F]">
                   {language === 'hi' ? 'स्वागत उपहार' : 'INSTANT WELCOME REWARD'}
                 </span>
-                <h3 className="font-display text-2xl font-black text-[#1B4D2E] mt-1">
+                <h3 className="font-display text-xl font-black text-[#1B4D2E] mt-1">
                   {language === 'hi' ? 'पहले ऑर्डर पर १५% की छूट' : '15% Off Your First Order'}
                 </h3>
-                <p className="text-xs text-[#5A483E] mt-1.5 leading-relaxed">
+                <p className="text-xs text-[#5A483E] mt-1 leading-relaxed">
                   {language === 'hi'
                     ? 'अपना ईमेल दर्ज करें और अपने इनबॉक्स में तुरंत वेलकम डिस्काउंट कोड प्राप्त करें।'
                     : 'Subscribe your email to receive your instant welcome discount code and seasonal spice guide.'}
@@ -159,19 +164,19 @@ export const SpiceClubSection = () => {
               </div>
 
               {joined ? (
-                <div className="p-4 rounded-2xl bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-bold flex items-center justify-center gap-2 animate-scale">
+                <div className="p-3.5 rounded-2xl bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-bold flex items-center justify-center gap-2 animate-scale">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                   <span>{language === 'hi' ? 'स्वागत है! आपका कोड भेज दिया गया है।' : 'Welcome to the club! Check your inbox for code.'}</span>
                 </div>
               ) : (
-                <form onSubmit={handleJoin} className="space-y-3">
+                <form onSubmit={handleJoin} className="space-y-2.5">
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={language === 'hi' ? 'अपना ईमेल दर्ज करें...' : 'Enter your email address...'}
-                    className="w-full px-4 py-3 rounded-full bg-white border border-[#E8DFCF] text-xs text-[#2B1D14] placeholder-[#8C7C72] outline-none focus:border-[#1B4D2E] shadow-xs"
+                    className="w-full px-4 py-2.5 rounded-full bg-white border border-[#E8DFCF] text-xs text-[#2B1D14] placeholder-[#8C7C72] outline-none focus:border-[#1B4D2E] shadow-xs"
                   />
                   <button
                     type="submit"

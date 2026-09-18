@@ -7,13 +7,15 @@ import ScrollReveal from '../common/ScrollReveal';
 
 /**
  * Section 4 — Stockist / Where to Buy
- * Reference: DOCS/tikhori-foods-design-spec.md
- * Enhanced with animated tab filtering, card transitions, and shimmer CTAs.
+ * Incorporates the artisanal spice pantry artwork:
+ * /assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_6vejnf6vejnf6vej.png
  */
 export const StockistLocatorSection = () => {
   const { language } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeRegion, setActiveRegion] = useState('all');
+
+  const apothecaryArtworkSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_6vejnf6vejnf6vej.png');
 
   const stockists = [
     {
@@ -82,7 +84,7 @@ export const StockistLocatorSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Search & Store List */}
-          <div className="lg:col-span-8 space-y-6">
+          <div className="lg:col-span-7 space-y-6">
             <ScrollReveal animation="fade-up" delay={50}>
               {/* Eyebrow Label */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4D2E]/10 border border-[#1B4D2E]/20 text-[#1B4D2E] text-xs font-black tracking-[0.2em] uppercase">
@@ -107,7 +109,7 @@ export const StockistLocatorSection = () => {
             </ScrollReveal>
 
             <ScrollReveal animation="fade-up" delay={180}>
-              <p className="text-base sm:text-lg text-[#5A483E] leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg text-[#5A483E] leading-relaxed">
                 {language === 'hi'
                   ? 'हमारे ताजे और प्रामाणिक मसाले भारत भर के चुनिंदा जैविक स्टोर्स और किराना पार्टनर्स पर उपलब्ध हैं। अपना पिनकोड या शहर दर्ज करें।'
                   : 'Experience single-origin, stemless spices in your kitchen today. Locate certified partner stores, organic retailers, and distribution centers near you.'}
@@ -135,7 +137,7 @@ export const StockistLocatorSection = () => {
                   </button>
                 </div>
 
-                {/* Filter Tabs with Smooth Transition */}
+                {/* Filter Tabs */}
                 <div className="flex flex-wrap items-center gap-3 mt-4 text-xs font-bold text-[#1B4D2E]">
                   <button
                     type="button"
@@ -223,51 +225,51 @@ export const StockistLocatorSection = () => {
             </div>
           </div>
 
-          {/* Right Column: Promotional Card with Floating Art and Scalloped Stamp */}
-          <div className="lg:col-span-4 flex justify-center">
-            <ScrollReveal animation="scale" delay={250}>
-              <div className="relative w-full max-w-sm rounded-3xl bg-[#1B4D2E] text-[#FDF6E9] p-6 sm:p-8 border-2 border-[#F2C230]/40 shadow-xl hover:shadow-2xl transition-all duration-500 text-center space-y-6">
-                <div className="relative inline-block mx-auto">
-                  <img
-                    src="/assets/products/product-1.png"
-                    alt="Small-Batch Ground Fresh"
-                    className="h-52 w-auto object-contain mx-auto drop-shadow-2xl animate-float"
-                  />
+          {/* Right Column: Apothecary Pantry Visual + Wholesale Partner Card */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            <ScrollReveal animation="fade-left" delay={250}>
+              <div className="rounded-3xl overflow-hidden shadow-xl border-2 border-[#E8DFCF] bg-white group">
+                <img
+                  src={apothecaryArtworkSrc}
+                  alt="Tikhori Artisanal Spice Apothecary and Stockist Shelves"
+                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-spring"
+                  loading="lazy"
+                />
+              </div>
+            </ScrollReveal>
 
-                  {/* Overlaid Scalloped Badge with Hover Wobble */}
-                  <div className="absolute -top-4 -right-4">
-                    <ScallopedBadge
-                      textTop="FRESH"
-                      textMain="BATCH"
-                      textSub="GROUND"
-                      variant="yellow"
-                      size="md"
-                      rotate={8}
-                    />
-                  </div>
-                </div>
-
-                <div className="border-t border-[#F2C230]/30 pt-4">
+            <ScrollReveal animation="fade-left" delay={350}>
+              <div className="rounded-3xl bg-[#1B4D2E] text-[#FDF6E9] p-6 sm:p-8 border-2 border-[#F2C230]/40 shadow-xl space-y-4">
+                <div className="flex items-center justify-between">
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#F2C230]">
                     {language === 'hi' ? 'व्यापारिक अवसर' : 'WHOLESALE & RETAIL'}
                   </span>
-                  <h3 className="font-display text-xl font-black text-[#FDF6E9] mt-1">
-                    {language === 'hi' ? 'टिखोरी के अधिकृत पार्टनर बनें' : 'Become a Stockist Partner'}
-                  </h3>
-                  <p className="text-xs text-[#FDF6E9]/80 mt-2 leading-relaxed">
-                    {language === 'hi'
-                      ? 'अपने स्टोर पर १००% जैविक और शुद्ध भारतीय मसाले जोड़ें। आकर्षक व्यापारिक मार्जिन और समर्पित सप्लाई।'
-                      : 'Supply your gourmet customers with stemless, stone-ground purity. Enjoy reliable bulk distribution & wholesale support.'}
-                  </p>
-
-                  <Link
-                    to="/contact"
-                    className="btn-shimmer mt-6 w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#F2C230] text-[#1B4D2E] text-xs font-black tracking-widest uppercase hover:bg-[#D4A21A] hover:-translate-y-0.5 transition-all duration-300 shadow-md active:scale-95"
-                  >
-                    <span>{language === 'hi' ? 'पार्टनरशिप पूछताछ' : 'INQUIRE FOR STOCK'}</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                  </Link>
+                  <ScallopedBadge
+                    textTop=""
+                    textMain="PARTNER"
+                    textSub=""
+                    variant="yellow"
+                    size="sm"
+                    rotate={5}
+                  />
                 </div>
+
+                <h3 className="font-display text-xl font-black text-[#FDF6E9]">
+                  {language === 'hi' ? 'टिखोरी के अधिकृत पार्टनर बनें' : 'Become a Stockist Partner'}
+                </h3>
+                <p className="text-xs text-[#FDF6E9]/80 leading-relaxed">
+                  {language === 'hi'
+                    ? 'अपने स्टोर पर १००% जैविक और शुद्ध भारतीय मसाले जोड़ें। आकर्षक व्यापारिक मार्जिन और समर्पित सप्लाई।'
+                    : 'Supply your gourmet customers with stemless, stone-ground purity. Enjoy reliable bulk distribution & wholesale support.'}
+                </p>
+
+                <Link
+                  to="/contact"
+                  className="btn-shimmer w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#F2C230] text-[#1B4D2E] text-xs font-black tracking-widest uppercase hover:bg-[#D4A21A] hover:-translate-y-0.5 transition-all duration-300 shadow-md active:scale-95"
+                >
+                  <span>{language === 'hi' ? 'पार्टनरशिप पूछताछ' : 'INQUIRE FOR STOCK'}</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                </Link>
               </div>
             </ScrollReveal>
           </div>

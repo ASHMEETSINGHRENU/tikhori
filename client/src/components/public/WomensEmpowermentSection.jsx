@@ -15,7 +15,7 @@ import ScrollReveal from '../common/ScrollReveal';
 export const WomensEmpowermentSection = () => {
   const { language } = useLanguage();
 
-  const journeyImage = encodeURI("/assets/SPECIAL SECTION — WOMEN'S EMPOWERMENT  JOURNEY/Gemini_Generated_Image_uv69bfuv69bfuv69.png");
+  const journeyImage = '/assets/womens-empowerment/Gemini_Generated_Image_uv69bfuv69bfuv69.png';
 
   const milestones = [
     {

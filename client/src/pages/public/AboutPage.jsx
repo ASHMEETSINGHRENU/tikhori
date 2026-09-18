@@ -19,7 +19,7 @@ export const AboutPage = () => {
   const [content, setContent] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const heroBannerSrc = encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_f3jcn0f3jcn0f3jc.png');
+  const heroBannerSrc = '/assets/page-heroes/Gemini_Generated_Image_f3jcn0f3jcn0f3jc.png';
 
   useEffect(() => {
     const fetchContent = async () => {

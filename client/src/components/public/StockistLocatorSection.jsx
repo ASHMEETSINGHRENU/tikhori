@@ -15,7 +15,7 @@ export const StockistLocatorSection = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeRegion, setActiveRegion] = useState('all');
 
-  const apothecaryArtworkSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_6vejnf6vejnf6vej.png');
+  const apothecaryArtworkSrc = '/assets/homepage-banners/Gemini_Generated_Image_6vejnf6vejnf6vej.png';
 
   const stockists = [
     {

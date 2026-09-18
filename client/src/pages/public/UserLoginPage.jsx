@@ -17,7 +17,7 @@ export const UserLoginPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  const scrollBackdropSrc = encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_cog7tmcog7tmcog7.png');
+  const scrollBackdropSrc = '/assets/page-heroes/Gemini_Generated_Image_cog7tmcog7tmcog7.png';
 
   const {
     register,

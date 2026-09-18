@@ -14,7 +14,7 @@ import ScrollReveal from '../common/ScrollReveal';
 export const ProductShowcaseSection = ({ products = [] }) => {
   const { t, language } = useLanguage();
 
-  const showcaseBannerSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_h4jzeh4jzeh4jzeh.png');
+  const showcaseBannerSrc = '/assets/homepage-banners/Gemini_Generated_Image_h4jzeh4jzeh4jzeh.png';
 
   const flagshipSpices = [
     {

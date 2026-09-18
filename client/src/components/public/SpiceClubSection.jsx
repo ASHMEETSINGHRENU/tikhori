@@ -15,7 +15,7 @@ export const SpiceClubSection = () => {
   const [email, setEmail] = useState('');
   const [joined, setJoined] = useState(false);
 
-  const feastArtworkSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_ptxa53ptxa53ptxa.png');
+  const feastArtworkSrc = '/assets/homepage-banners/Gemini_Generated_Image_ptxa53ptxa53ptxa.png';
 
   const handleJoin = (e) => {
     e.preventDefault();

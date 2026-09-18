@@ -20,8 +20,8 @@ export const DecorativePatternStrip = ({
   // Map variant to image asset
   const isPaisley = variant === 'paisley' || variant === 'forest';
   const patternSrc = isPaisley
-    ? '/assets/DECORATIVE%20PATTERN%20%20TRANSITION%20BANNERS/Gemini_Generated_Image_7rrakh7rrakh7rra.png'
-    : '/assets/DECORATIVE%20PATTERN%20%20TRANSITION%20BANNERS/Gemini_Generated_Image_av7xeiav7xeiav7x.png';
+    ? '/assets/decorative-patterns/Gemini_Generated_Image_7rrakh7rrakh7rra.png'
+    : '/assets/decorative-patterns/Gemini_Generated_Image_av7xeiav7xeiav7x.png';
 
   const heightClasses = {
     sm: 'h-12 sm:h-14',

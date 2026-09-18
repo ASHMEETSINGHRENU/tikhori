@@ -12,7 +12,7 @@ export const WhyTikhoriSection = ({ content }) => {
   const { t, language } = useLanguage();
   const whyData = content?.whyTikhori || {};
 
-  const scrollBackdropSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_ssi9gpssi9gpssi9.png');
+  const scrollBackdropSrc = '/assets/homepage-banners/Gemini_Generated_Image_ssi9gpssi9gpssi9.png';
 
   const iconMap = {
     Leaf,

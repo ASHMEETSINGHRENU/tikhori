@@ -14,7 +14,7 @@ export const OriginStorySection = ({ content }) => {
   const { t, language } = useLanguage();
   const about = content?.about || {};
 
-  const originBannerSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_hh4m7uhh4m7uhh4m.png');
+  const originBannerSrc = '/assets/homepage-banners/Gemini_Generated_Image_hh4m7uhh4m7uhh4m.png';
 
   return (
     <section id="origin-story" className="relative overflow-hidden bg-[#1B4D2E] text-[#FDF6E9] py-20 md:py-28 lg:py-36">

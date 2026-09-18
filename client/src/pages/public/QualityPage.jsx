@@ -19,7 +19,7 @@ export const QualityPage = () => {
   const [content, setContent] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const heroBannerSrc = encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_jjeurnjjeurnjjeu.png');
+  const heroBannerSrc = '/assets/page-heroes/Gemini_Generated_Image_jjeurnjjeurnjjeu.png';
 
   useEffect(() => {
     const fetchContent = async () => {

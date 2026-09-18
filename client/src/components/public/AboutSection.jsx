@@ -14,7 +14,7 @@ export const AboutSection = ({ content }) => {
   const { t, language } = useLanguage();
   const about = content?.about || {};
 
-  const aboutArtworkSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_lkzooilkzooilkzo.png');
+  const aboutArtworkSrc = '/assets/homepage-banners/Gemini_Generated_Image_lkzooilkzooilkzo.png';
 
   return (
     <section id="about" className="py-20 md:py-28 bg-[#FDF6E9] relative border-b border-[#E8DFCF] overflow-hidden">

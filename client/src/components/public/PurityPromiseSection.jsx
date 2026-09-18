@@ -13,7 +13,7 @@ import ScrollReveal from '../common/ScrollReveal';
 export const PurityPromiseSection = () => {
   const { language } = useLanguage();
 
-  const parchmentBannerSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_f7xarsf7xarsf7xa.png');
+  const parchmentBannerSrc = '/assets/homepage-banners/Gemini_Generated_Image_f7xarsf7xarsf7xa.png';
 
   const purityPillars = [
     {

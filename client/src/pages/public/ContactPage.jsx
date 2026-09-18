@@ -12,7 +12,7 @@ export const ContactPage = () => {
   const { language } = useLanguage();
   const [settings, setSettings] = useState(null);
 
-  const heroBannerSrc = encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_y0kljly0kljly0kl.png');
+  const heroBannerSrc = '/assets/page-heroes/Gemini_Generated_Image_y0kljly0kljly0kl.png';
 
   useEffect(() => {
     const fetchSettings = async () => {

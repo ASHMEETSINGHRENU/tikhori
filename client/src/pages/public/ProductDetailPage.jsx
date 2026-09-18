@@ -48,24 +48,24 @@ export const ProductDetailPage = () => {
 
   // Dynamic Editorial Hero Banner Selection based on spice slug & name
   const getProductHeroImage = (prod) => {
-    if (!prod) return encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_db0q5tdb0q5tdb0q.png');
+    if (!prod) return '/assets/page-heroes/Gemini_Generated_Image_db0q5tdb0q5tdb0q.png';
     const s = (prod.slug || '').toLowerCase();
     const nameEn = (prod.name?.en || '').toLowerCase();
     const nameHi = (prod.name?.hi || '').toLowerCase();
 
     if (s.includes('chilli') || s.includes('mirch') || nameEn.includes('chilli') || nameHi.includes('मिर्च')) {
-      return encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_3xzvrk3xzvrk3xzv.png');
+      return '/assets/page-heroes/Gemini_Generated_Image_3xzvrk3xzvrk3xzv.png';
     }
     if (s.includes('turmeric') || s.includes('haldi') || nameEn.includes('turmeric') || nameHi.includes('हल्दी')) {
-      return encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_84f73w84f73w84f7.png');
+      return '/assets/page-heroes/Gemini_Generated_Image_84f73w84f73w84f7.png';
     }
     if (s.includes('coriander') || s.includes('dhaniya') || nameEn.includes('coriander') || nameHi.includes('धनिया')) {
-      return encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_e6nle7e6nle7e6nl.png');
+      return '/assets/page-heroes/Gemini_Generated_Image_e6nle7e6nle7e6nl.png';
     }
     if (s.includes('jeera') || s.includes('cumin') || s.includes('kaala') || nameEn.includes('jeera') || nameHi.includes('जीरा')) {
-      return encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_pwfkn7pwfkn7pwfk.png');
+      return '/assets/page-heroes/Gemini_Generated_Image_pwfkn7pwfkn7pwfk.png';
     }
-    return encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_db0q5tdb0q5tdb0q.png');
+    return '/assets/page-heroes/Gemini_Generated_Image_db0q5tdb0q5tdb0q.png';
   };
 
   if (loading) {

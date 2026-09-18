@@ -68,7 +68,9 @@ app.use('/uploads', express.static(uploadDir));
 
 // Serve initial assets if requested from backend
 const assetDir = path.join(__dirname, '../../Assets');
+const clientAssetDir = path.join(__dirname, '../../client/public/assets');
 app.use('/assets', express.static(assetDir));
+app.use('/assets', express.static(clientAssetDir));
 app.use('/assets', express.static(path.join(uploadDir, 'initial')));
 
 // Root endpoint

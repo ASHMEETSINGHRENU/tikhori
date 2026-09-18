@@ -21,7 +21,7 @@ export const ProductsPage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [loading, setLoading] = useState(true);
 
-  const heroBannerSrc = encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_qj5sneqj5sneqj5s.png');
+  const heroBannerSrc = '/assets/page-heroes/Gemini_Generated_Image_qj5sneqj5sneqj5s.png';
 
   useEffect(() => {
     const fetchProducts = async () => {

@@ -11,7 +11,7 @@ export const QualityProcessSection = ({ content }) => {
   const { t, language } = useLanguage();
   const processData = content?.qualityProcess || {};
 
-  const processBannerSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_e1css7e1css7e1cs.png');
+  const processBannerSrc = '/assets/homepage-banners/Gemini_Generated_Image_e1css7e1css7e1cs.png';
 
   const defaultSteps = [
     {

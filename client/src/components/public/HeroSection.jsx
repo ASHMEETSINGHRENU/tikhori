@@ -17,7 +17,7 @@ export const HeroSection = ({ content }) => {
   const { t, language } = useLanguage();
   const hero = content?.hero || {};
 
-  const heroBannerSrc = encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_ygkm7pygkm7pygkm.png');
+  const heroBannerSrc = '/assets/page-heroes/Gemini_Generated_Image_ygkm7pygkm7pygkm.png';
 
   return (
     <section className="relative overflow-hidden bg-[#FDF6E9] border-b border-[#E8DFCF]">

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { Eye, EyeOff, Lock, Mail, AlertCircle, ArrowLeft, UserCheck } from 'lucide-react';
+import { Eye, EyeOff, Lock, Mail, AlertCircle, ArrowLeft, UserCheck, Sparkles } from 'lucide-react';
 import { useUserAuth } from '../../context/UserAuthContext';
 import { useLanguage } from '../../context/LanguageContext';
+import ScallopedBadge from '../../components/common/ScallopedBadge';
 
 export const UserLoginPage = () => {
   const { login } = useUserAuth();
@@ -15,6 +16,8 @@ export const UserLoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
+
+  const scrollBackdropSrc = encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_cog7tmcog7tmcog7.png');
 
   const {
     register,
@@ -42,32 +45,43 @@ export const UserLoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-brand-ivory flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Decorative background glows */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div className="min-h-screen bg-[#FDF6E9] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Subtle Background Scroll Backdrop */}
+      <div className="absolute inset-0 opacity-25 pointer-events-none">
+        <img
+          src={scrollBackdropSrc}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
-        <div className="text-center">
-          <Link to="/" className="inline-block">
+        <div className="text-center space-y-2">
+          <Link to="/" className="inline-block hover:scale-105 transition-transform">
             <img
               src="/assets/logo/logo.png"
               alt="Tikhori Foods Logo"
-              className="h-16 w-16 mx-auto object-contain filter drop-shadow-md hover:scale-105 transition-transform"
+              className="h-20 w-20 mx-auto object-contain filter drop-shadow-md"
             />
           </Link>
-          <h2 className="mt-3 font-serif text-3xl font-bold text-brand-charcoal">
-            {language === 'hi' ? 'ग्राहक लॉगिन' : ' Sign In'}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1B4D2E]/10 border border-[#1B4D2E]/20 text-[#1B4D2E] text-[10px] font-black tracking-[0.2em] uppercase">
+            <Sparkles className="w-3 h-3 text-[#D4A21A]" />
+            <span>{language === 'hi' ? 'ग्राहक पोर्टल' : 'CUSTOMER PORTAL'}</span>
+          </div>
+          <h2 className="font-display text-3xl font-black text-[#1B4D2E]">
+            {language === 'hi' ? 'ग्राहक लॉगिन' : 'Welcome Back'}
           </h2>
-          <p className="mt-1 text-xs text-brand-stone">
+          <p className="text-xs text-[#5A483E]">
             {language === 'hi'
               ? 'टिखोरी फूड्स के साथ अपने शुद्ध मसालों की यात्रा जारी रखें'
               : 'Sign in with your Email Address or Username'}
           </p>
         </div>
 
-        <div className="mt-8 bg-white border border-brand-border/80 rounded-3xl p-8 sm:p-10 shadow-soft">
+        <div className="mt-8 bg-white border-2 border-[#E8DFCF] rounded-3xl p-8 sm:p-10 shadow-xl relative">
           {errorMessage && (
-            <div className="mb-6 p-4 rounded-2xl bg-brand-red/10 border border-brand-red/20 text-brand-red-dark flex items-start gap-2.5 text-xs">
+            <div className="mb-6 p-4 rounded-2xl bg-[#D6301F]/10 border border-[#D6301F]/20 text-[#D6301F] flex items-start gap-2.5 text-xs">
               <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
               <span>{errorMessage}</span>
             </div>
@@ -75,96 +89,79 @@ export const UserLoginPage = () => {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal uppercase tracking-wider mb-1">
+              <label className="block text-xs font-black text-[#1B4D2E] uppercase tracking-wider mb-1">
                 {language === 'hi' ? 'ईमेल पता या यूज़रनेम' : 'Email Address or Username'}{' '}
-                <span className="text-brand-red">*</span>
+                <span className="text-[#D6301F]">*</span>
               </label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-brand-stone absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Mail className="w-4 h-4 text-[#8C7C72] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   autoComplete="username email"
                   {...register('identifier', { required: language === 'hi' ? 'ईमेल या यूज़रनेम आवश्यक है' : 'Email or Username is required' })}
                   placeholder={language === 'hi' ? 'उदा. your_username या user@example.com' : 'e.g. your_username or user@example.com'}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-brand-border bg-brand-sand/30 text-xs focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition-all text-brand-charcoal"
+                  className="w-full pl-10 pr-4 py-3 rounded-full border border-[#E8DFCF] bg-[#FDF6E9]/40 text-xs focus:border-[#1B4D2E] outline-none transition-all text-[#2B1D14] font-medium"
                 />
               </div>
               {errors.identifier && (
-                <p className="text-xs text-brand-red mt-1">{errors.identifier.message}</p>
+                <p className="text-xs text-[#D6301F] mt-1">{errors.identifier.message}</p>
               )}
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal uppercase tracking-wider mb-1">
-                {language === 'hi' ? 'पासवर्ड' : 'Password'} <span className="text-brand-red">*</span>
+              <label className="block text-xs font-black text-[#1B4D2E] uppercase tracking-wider mb-1">
+                {language === 'hi' ? 'पासवर्ड' : 'Password'} <span className="text-[#D6301F]">*</span>
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-brand-stone absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Lock className="w-4 h-4 text-[#8C7C72] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   autoComplete="current-password"
                   {...register('password', { required: language === 'hi' ? 'पासवर्ड आवश्यक है' : 'Password is required' })}
-                  placeholder="••••••••••••"
-                  className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-brand-border bg-brand-sand/30 text-xs focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition-all text-brand-charcoal"
+                  placeholder="••••••••"
+                  className="w-full pl-10 pr-10 py-3 rounded-full border border-[#E8DFCF] bg-[#FDF6E9]/40 text-xs focus:border-[#1B4D2E] outline-none transition-all text-[#2B1D14]"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="p-1 text-brand-stone hover:text-brand-charcoal absolute right-3 top-1/2 -translate-y-1/2"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#8C7C72] hover:text-[#1B4D2E]"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
               {errors.password && (
-                <p className="text-xs text-brand-red mt-1">{errors.password.message}</p>
+                <p className="text-xs text-[#D6301F] mt-1">{errors.password.message}</p>
               )}
             </div>
 
             <button
               type="submit"
               disabled={submitting}
-              className="w-full py-3 px-4 rounded-xl bg-brand-forest hover:bg-brand-forest-light text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md active:scale-98 disabled:opacity-60 flex items-center justify-center gap-2 mt-2"
+              className="btn-shimmer w-full mt-2 py-3.5 px-4 rounded-full bg-[#1B4D2E] hover:bg-[#25663D] text-[#FDF6E9] text-xs font-black tracking-widest uppercase transition-all shadow-md active:scale-95 disabled:opacity-50"
             >
-              {submitting ? (
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-              ) : (
-                <>
-                  <UserCheck className="w-4 h-4" />
-                  <span>{language === 'hi' ? 'लॉगिन करें' : 'Sign In'}</span>
-                </>
-              )}
+              {submitting
+                ? (language === 'hi' ? 'सत्यापित किया जा रहा है...' : 'Verifying...')
+                : (language === 'hi' ? 'साइन इन करें' : 'Sign In')}
             </button>
           </form>
 
-          <div className="mt-4 p-3 bg-brand-sand/40 border border-brand-border/60 rounded-xl text-center">
-            <p className="text-[11px] text-brand-stone">
-              {language === 'hi'
-                ? '💡 सुझाव: आप अपने पंजीकृत @यूज़रनेम या ईमेल दोनों से लॉगिन कर सकते हैं।'
-                : '💡 Tip: You can log in using either your @username or registered email.'}
-            </p>
-          </div>
-
-          <div className="mt-6 pt-5 border-t border-brand-border/60 text-center">
-            <p className="text-xs text-brand-stone">
-              {language === 'hi' ? 'खाता नहीं है?' : "Don't have an account yet?"}{' '}
-              <Link
-                to="/register"
-                className="font-bold text-brand-forest hover:text-brand-forest-light underline underline-offset-2 ml-1"
-              >
-                {language === 'hi' ? 'नया पंजीकरण करें' : 'Create an Account'}
+          <div className="mt-6 pt-6 border-t border-[#E8DFCF] text-center space-y-3">
+            <p className="text-xs text-[#5A483E]">
+              {language === 'hi' ? 'क्या आपका खाता नहीं है?' : "Don't have an account yet?"}{' '}
+              <Link to="/register" className="font-bold text-[#D6301F] hover:underline">
+                {language === 'hi' ? 'नया खाता बनाएं' : 'Create Account'}
               </Link>
             </p>
+            <div>
+              <Link
+                to="/"
+                className="inline-flex items-center gap-1.5 text-xs text-[#8C7C72] hover:text-[#1B4D2E] transition-colors"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>{language === 'hi' ? 'मुख्य पृष्ठ पर वापस जाएं' : 'Back to Home'}</span>
+              </Link>
+            </div>
           </div>
-        </div>
-
-        <div className="mt-6 text-center">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-xs text-brand-stone hover:text-brand-forest transition-colors"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>{language === 'hi' ? 'मुख्य पृष्ठ पर वापस जाएं' : 'Back to Storefront'}</span>
-          </Link>
         </div>
       </div>
     </div>

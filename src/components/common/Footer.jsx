@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Clock, Heart, Shield, Award } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Heart, Shield } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
+import DecorativePatternStrip from './DecorativePatternStrip';
 
 /**
- * Section 8 — Footer
- * Reference: DOCS/tikhori-foods-design-spec.md
+ * Section: Global Footer
+ * Topped with an authentic botanical pattern border
  * - Background: Cream (#FDF6E9)
  * - Text color: Forest Green (#1B4D2E)
- * - Content: Logo lockup, link columns (Shop, Our Story, Quality, Contact), legal line
+ * - Navigation columns, Flagship range, and contact coordinates
  */
 export const Footer = ({ settings, content }) => {
   const { t, tr, language } = useLanguage();
@@ -18,8 +19,11 @@ export const Footer = ({ settings, content }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#FDF6E9] text-[#1B4D2E] border-t-2 border-[#E8DFCF] pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#FDF6E9] text-[#1B4D2E] border-t-2 border-[#E8DFCF]">
+      {/* Decorative Botanical Border across the top of footer */}
+      <DecorativePatternStrip variant="botanical" height="sm" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-[#E8DFCF]">
           {/* Brand Col */}
           <div className="space-y-4">
@@ -75,7 +79,7 @@ export const Footer = ({ settings, content }) => {
                 </Link>
               </li>
               <li>
-                <a href="#stockists" className="text-[#5A483E] hover:text-[#1B4D2E] transition-colors">
+                <a href="/#stockists" className="text-[#5A483E] hover:text-[#1B4D2E] transition-colors">
                   {language === 'hi' ? 'स्टोर खोजें' : 'Store Locator'}
                 </a>
               </li>

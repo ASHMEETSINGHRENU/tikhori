@@ -1,17 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Check } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import ScallopedBadge from '../common/ScallopedBadge';
 import ScrollReveal from '../common/ScrollReveal';
 
 /**
  * Section 3 — Product Showcase
- * Reference: DOCS/tikhori-foods-design-spec.md
- * Enhanced with spring hover physics, image zooms, and shimmer CTAs.
+ * Features the clean 4-spice flagship arrangement banner:
+ * /assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_h4jzeh4jzeh4jzeh.png
+ * along with the interactive product catalog cards linking dynamically to /products/:slug
  */
 export const ProductShowcaseSection = ({ products = [] }) => {
   const { t, language } = useLanguage();
+
+  const showcaseBannerSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_h4jzeh4jzeh4jzeh.png');
 
   const flagshipSpices = [
     {
@@ -51,9 +54,9 @@ export const ProductShowcaseSection = ({ products = [] }) => {
       {/* Decorative sunburst watermark with gentle continuous spin */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] rounded-full border-4 border-[#D4A21A]/20 pointer-events-none -z-0 animate-spin-slow"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
         {/* Header Block */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <ScrollReveal animation="fade-up" delay={50} className="space-y-4 max-w-2xl">
             {/* Eyebrow Label */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B4D2E] text-[#FDF6E9] text-xs font-black tracking-[0.2em] uppercase">
@@ -94,8 +97,31 @@ export const ProductShowcaseSection = ({ products = [] }) => {
           </ScrollReveal>
         </div>
 
+        {/* Editorial Four-Spice Overview Banner */}
+        <ScrollReveal animation="fade-up" delay={200}>
+          <div className="relative rounded-3xl overflow-hidden shadow-xl border-2 border-[#1B4D2E]/40 bg-[#FDF6E9] group">
+            <img
+              src={showcaseBannerSrc}
+              alt="Tikhori 4 Signature Spices: Lal Mirch, Haldi, Dhaniya, Jeera"
+              className="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700 ease-spring"
+              loading="lazy"
+            />
+            {/* Scalloped Stamp */}
+            <div className="absolute top-4 right-4 sm:top-6 sm:right-6">
+              <ScallopedBadge
+                textTop="FOUR"
+                textMain="PURE"
+                textSub="SPICES"
+                variant="red"
+                size="md"
+                rotate={-6}
+              />
+            </div>
+          </div>
+        </ScrollReveal>
+
         {/* 4 Flagship Product Cards Grid with Spring Physics */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-4">
           {displayList.slice(0, 4).map((item, idx) => {
             const name = item.name ? t(item.name, item.name.en || 'Spice') : 'Spice';
             const subtitle = item.subtitle ? t(item.subtitle, item.shortDescription?.en || '') : (item.shortDescription ? t(item.shortDescription, '') : '');

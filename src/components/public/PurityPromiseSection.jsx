@@ -2,9 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Sprout, CheckCircle2, Award, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import ScallopedBadge from '../common/ScallopedBadge';
+import ScrollReveal from '../common/ScrollReveal';
 
+/**
+ * Section: Purity Promise
+ * Visual foundation uses the deckle-edged botanical parchment banner:
+ * /assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_f7xarsf7xarsf7xa.png
+ */
 export const PurityPromiseSection = () => {
   const { language } = useLanguage();
+
+  const parchmentBannerSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_f7xarsf7xarsf7xa.png');
 
   const purityPillars = [
     {
@@ -42,89 +51,109 @@ export const PurityPromiseSection = () => {
   ];
 
   return (
-    <section id="purity-promise" className="py-20 bg-brand-sand/40 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-xs font-semibold text-brand-forest uppercase tracking-widest bg-brand-forest/10 px-3.5 py-1.5 rounded-full border border-brand-forest/20 inline-flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-            <span>{language === 'hi' ? 'शुद्धता का सच्चा संकल्प' : 'Our Purity Promise'}</span>
-          </span>
+    <section id="purity-promise" className="py-20 md:py-28 bg-[#FDF6E9] relative overflow-hidden border-b border-[#E8DFCF]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+        {/* Editorial Header with Deckle Parchment Banner Canvas */}
+        <ScrollReveal animation="fade-up" delay={50}>
+          <div className="relative rounded-3xl overflow-hidden shadow-lg border-2 border-[#E8DFCF] bg-white">
+            <div className="relative w-full aspect-[21/9] sm:aspect-[3/1] lg:aspect-[3.6/1] overflow-hidden">
+              <img
+                src={parchmentBannerSrc}
+                alt="Tikhori Purity Guarantee Parchment"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-[#FDF6E9]/35 pointer-events-none"></div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-charcoal mt-4 mb-4">
-            {language === 'hi' ? 'खेत की शुद्धता, आपकी थाली तक' : 'Pure Spices. Traditional Craft. Zero Shortcuts.'}
-          </h2>
+              {/* Centered Editorial Header Text */}
+              <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
+                <div className="max-w-2xl space-y-2">
+                  <span className="text-xs font-black text-[#1B4D2E] uppercase tracking-[0.2em] bg-white/90 px-3.5 py-1.5 rounded-full border border-[#1B4D2E]/20 inline-flex items-center gap-1.5 shadow-2xs">
+                    <Sparkles className="w-3.5 h-3.5 text-[#D4A21A]" />
+                    <span>{language === 'hi' ? 'शुद्धता का सच्चा संकल्प' : 'OUR PURITY PROMISE'}</span>
+                  </span>
 
-          <p className="text-base sm:text-lg text-brand-stone leading-relaxed">
-            {language === 'hi'
-              ? 'टिखोरी फूड्स में हर मसाला भारतीय पाक कला की प्राचीन परंपरा, बिना किसी कृत्रिम रंग या रसायन के, और धीमी पिसाई के साथ तैयार किया जाता है।'
-              : 'Every Tikhori Foods blend is ground with patient care, honoring authentic Indian recipes without artificial colours, chemical preservatives, or synthetic fillers.'}
-          </p>
-        </div>
+                  <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black text-[#1B4D2E] tracking-tight">
+                    {language === 'hi' ? 'खेत की शुद्धता, आपकी थाली तक' : 'Pure Spices. Traditional Craft. Zero Shortcuts.'}
+                  </h2>
 
-        {/* 4 Purity Pillars Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-14">
+                  <p className="text-xs sm:text-sm text-[#5A483E] font-medium leading-relaxed max-w-xl mx-auto hidden sm:block">
+                    {language === 'hi'
+                      ? 'टिखोरी फूड्स में हर मसाला भारतीय पाक कला की प्राचीन परंपरा, बिना किसी कृत्रिम रंग या रसायन के, और धीमी पिसाई के साथ तैयार किया जाता है।'
+                      : 'Every blend is ground with patient care, honoring authentic recipes without artificial colours, chemical preservatives, or synthetic fillers.'}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* 4 Purity Pillars Grid with Spring Physics */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {purityPillars.map((pillar, idx) => {
             const IconComponent = pillar.icon;
             return (
-              <div
-                key={idx}
-                className="bg-white rounded-3xl p-7 border border-brand-border/80 shadow-soft relative flex flex-col justify-between hover:border-brand-forest/40 hover:shadow-soft-lg transition-all group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-12 h-12 rounded-2xl bg-brand-forest/10 text-brand-forest flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-forest group-hover:text-white transition-all">
-                      <IconComponent className="w-6 h-6" />
+              <ScrollReveal key={idx} animation="fade-up" delay={idx * 100} duration={600}>
+                <div
+                  className="bg-white rounded-3xl p-7 border-2 border-[#E8DFCF] hover:border-[#1B4D2E] shadow-soft hover:shadow-xl hover:-translate-y-2 transition-all duration-400 ease-spring relative flex flex-col justify-between h-full group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="w-12 h-12 rounded-2xl bg-[#1B4D2E]/10 text-[#1B4D2E] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#1B4D2E] group-hover:text-[#FDF6E9] transition-all duration-300">
+                        <IconComponent className="w-6 h-6" />
+                      </div>
+                      <span className="font-display text-2xl font-black text-[#E8DFCF] group-hover:text-[#D4A21A] transition-colors">
+                        {pillar.step}
+                      </span>
                     </div>
-                    <span className="font-serif text-2xl font-bold text-brand-stone/30 group-hover:text-brand-gold transition-colors">
-                      {pillar.step}
-                    </span>
+
+                    <h3 className="font-display text-lg font-black text-[#1B4D2E] mb-2 group-hover:text-[#D6301F] transition-colors">
+                      {pillar.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-[#5A483E] leading-relaxed">
+                      {pillar.desc}
+                    </p>
                   </div>
 
-                  <h3 className="font-serif text-lg font-bold text-brand-charcoal mb-2">
-                    {pillar.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-brand-stone leading-relaxed">
-                    {pillar.desc}
-                  </p>
+                  <div className="mt-6 pt-4 border-t border-[#E8DFCF] flex items-center gap-1.5 text-xs font-bold text-[#1B4D2E]">
+                    <span>{language === 'hi' ? '१००% प्रामाणिक' : '100% Authentic'}</span>
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D4A21A]" />
+                  </div>
                 </div>
-
-                <div className="mt-6 pt-4 border-t border-brand-border/40 flex items-center gap-1.5 text-xs font-semibold text-brand-forest">
-                  <span>{language === 'hi' ? '१००% प्रामाणिक' : '100% Authentic'}</span>
-                  <CheckCircle2 className="w-3.5 h-3.5 text-brand-gold" />
-                </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>
 
         {/* Bottom Assurance Banner */}
-        <div className="rounded-3xl bg-white border border-brand-border p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-soft">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-brand-gold/10 text-brand-gold-dark flex items-center justify-center shrink-0">
-              <Award className="w-6 h-6" />
+        <ScrollReveal animation="fade-up" delay={200}>
+          <div className="rounded-3xl bg-white border-2 border-[#E8DFCF] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-soft">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#F2C230]/20 text-[#D4A21A] flex items-center justify-center shrink-0">
+                <Award className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="font-display text-base sm:text-lg font-black text-[#1B4D2E]">
+                  {language === 'hi' ? 'गुणवत्ता और प्रामाणिकता की गारंटी' : 'Tested for Purity & Authentic Flavour'}
+                </h4>
+                <p className="text-xs sm:text-sm text-[#5A483E] mt-0.5">
+                  {language === 'hi'
+                    ? 'शून्य कीटनाशक अवशेष, शून्य मिलावट, १००% शुद्ध साबुत मसालों से निर्मित।'
+                    : 'Zero pesticide residue, zero added starch or dyes, crafted solely from whole spices.'}
+                </p>
+              </div>
             </div>
-            <div>
-              <h4 className="font-serif text-base sm:text-lg font-bold text-brand-charcoal">
-                {language === 'hi' ? 'गुणवत्ता और प्रामाणिकता की गारंटी' : 'Tested for Purity & Authentic Flavour'}
-              </h4>
-              <p className="text-xs text-brand-stone mt-0.5">
-                {language === 'hi'
-                  ? 'शून्य कीटनाशक अवशेष, शून्य मिलावट, १००% शुद्ध साबुत मसालों से निर्मित।'
-                  : 'Zero pesticide residue, zero added starch or dyes, crafted solely from whole spices.'}
-              </p>
-            </div>
-          </div>
 
-          <Link
-            to="/products"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-forest hover:bg-brand-forest-light text-white text-xs font-bold tracking-wider uppercase transition-all shadow-xs shrink-0"
-          >
-            <span>{language === 'hi' ? 'मसाले देखें' : 'View Spices'}</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
+            <Link
+              to="/products"
+              className="btn-shimmer inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#D6301F] hover:bg-[#B72416] text-[#FDF6E9] text-xs font-black tracking-widest uppercase transition-all shadow-sm shrink-0"
+            >
+              <span>{language === 'hi' ? 'मसाले देखें' : 'VIEW SPICES'}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

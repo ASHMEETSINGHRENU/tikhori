@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { Eye, EyeOff, Lock, Mail, User, AlertCircle, ArrowLeft, UserPlus, Phone } from 'lucide-react';
+import { Eye, EyeOff, Lock, Mail, User, AlertCircle, ArrowLeft, Phone, Sparkles } from 'lucide-react';
 import { useUserAuth } from '../../context/UserAuthContext';
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -13,6 +13,8 @@ export const UserRegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
+
+  const scrollBackdropSrc = encodeURI('/assets/SEPARATE PAGE HERO BANNERS/Gemini_Generated_Image_cog7tmcog7tmcog7.png');
 
   const {
     register,
@@ -43,32 +45,43 @@ export const UserRegisterPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-brand-ivory flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-forest/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div className="min-h-screen bg-[#FDF6E9] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background Scroll Backdrop */}
+      <div className="absolute inset-0 opacity-25 pointer-events-none">
+        <img
+          src={scrollBackdropSrc}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
-        <div className="text-center">
-          <Link to="/" className="inline-block">
+        <div className="text-center space-y-2">
+          <Link to="/" className="inline-block hover:scale-105 transition-transform">
             <img
               src="/assets/logo/logo.png"
               alt="Tikhori Foods Logo"
-              className="h-16 w-16 mx-auto object-contain filter drop-shadow-md hover:scale-105 transition-transform"
+              className="h-20 w-20 mx-auto object-contain filter drop-shadow-md"
             />
           </Link>
-          <h2 className="mt-3 font-serif text-3xl font-bold text-brand-charcoal">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1B4D2E]/10 border border-[#1B4D2E]/20 text-[#1B4D2E] text-[10px] font-black tracking-[0.2em] uppercase">
+            <Sparkles className="w-3 h-3 text-[#D4A21A]" />
+            <span>{language === 'hi' ? 'नया सदस्य' : 'JOIN OUR FAMILY'}</span>
+          </div>
+          <h2 className="font-display text-3xl font-black text-[#1B4D2E]">
             {language === 'hi' ? 'नया खाता बनाएं' : 'Create Account'}
           </h2>
-          <p className="mt-1 text-xs text-brand-stone">
+          <p className="text-xs text-[#5A483E]">
             {language === 'hi'
               ? 'टिखोरी फूड्स परिवार से जुड़ें और शुद्ध मसालों का अनुभव लें'
-              : 'Join the Tikhori Foods family for clean organic spices & direct updates'}
+              : 'Join the Tikhori Foods family for clean organic spices & member perks'}
           </p>
         </div>
 
-        <div className="mt-8 bg-white border border-brand-border/80 rounded-3xl p-8 sm:p-10 shadow-soft">
+        <div className="mt-8 bg-white border-2 border-[#E8DFCF] rounded-3xl p-8 sm:p-10 shadow-xl relative">
           {errorMessage && (
-            <div className="mb-6 p-4 rounded-2xl bg-brand-red/10 border border-brand-red/20 text-brand-red-dark flex items-start gap-2.5 text-xs">
+            <div className="mb-6 p-4 rounded-2xl bg-[#D6301F]/10 border border-[#D6301F]/20 text-[#D6301F] flex items-start gap-2.5 text-xs">
               <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
               <span>{errorMessage}</span>
             </div>
@@ -77,11 +90,11 @@ export const UserRegisterPage = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {/* Username */}
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal uppercase tracking-wider mb-1">
-                {language === 'hi' ? 'उपयोगकर्ता नाम (Username)' : 'Username'} <span className="text-brand-red">*</span>
+              <label className="block text-xs font-black text-[#1B4D2E] uppercase tracking-wider mb-1">
+                {language === 'hi' ? 'उपयोगकर्ता नाम (Username)' : 'Username'} <span className="text-[#D6301F]">*</span>
               </label>
               <div className="relative">
-                <User className="w-4 h-4 text-brand-stone absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <User className="w-4 h-4 text-[#8C7C72] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   {...register('username', {
@@ -93,134 +106,125 @@ export const UserRegisterPage = () => {
                     }
                   })}
                   placeholder="e.g. priya_sharma"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-brand-border bg-brand-sand/30 text-xs focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition-all text-brand-charcoal"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-full border border-[#E8DFCF] bg-[#FDF6E9]/40 text-xs focus:border-[#1B4D2E] outline-none transition-all text-[#2B1D14] font-medium"
                 />
               </div>
               {errors.username && (
-                <p className="text-xs text-brand-red mt-1">{errors.username.message}</p>
+                <p className="text-xs text-[#D6301F] mt-1">{errors.username.message}</p>
               )}
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal uppercase tracking-wider mb-1">
-                {language === 'hi' ? 'ईमेल पता' : 'Email Address'} <span className="text-brand-red">*</span>
+              <label className="block text-xs font-black text-[#1B4D2E] uppercase tracking-wider mb-1">
+                {language === 'hi' ? 'ईमेल पता' : 'Email Address'} <span className="text-[#D6301F]">*</span>
               </label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-brand-stone absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Mail className="w-4 h-4 text-[#8C7C72] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="email"
                   {...register('email', {
                     required: 'Email is required',
                     pattern: {
-                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                       message: 'Invalid email address'
                     }
                   })}
                   placeholder="e.g. priya@example.com"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-brand-border bg-brand-sand/30 text-xs focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition-all text-brand-charcoal"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-full border border-[#E8DFCF] bg-[#FDF6E9]/40 text-xs focus:border-[#1B4D2E] outline-none transition-all text-[#2B1D14] font-medium"
                 />
               </div>
               {errors.email && (
-                <p className="text-xs text-brand-red mt-1">{errors.email.message}</p>
+                <p className="text-xs text-[#D6301F] mt-1">{errors.email.message}</p>
               )}
             </div>
 
             {/* Full Name */}
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal uppercase tracking-wider mb-1">
-                {language === 'hi' ? 'पूरा नाम (वैकल्पिक)' : 'Full Name (Optional)'}
+              <label className="block text-xs font-black text-[#1B4D2E] uppercase tracking-wider mb-1">
+                {language === 'hi' ? 'पूरा नाम' : 'Full Name'}
               </label>
               <input
                 type="text"
                 {...register('name')}
                 placeholder="e.g. Priya Sharma"
-                className="w-full px-4 py-2.5 rounded-xl border border-brand-border bg-brand-sand/30 text-xs focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition-all text-brand-charcoal"
+                className="w-full px-4 py-2.5 rounded-full border border-[#E8DFCF] bg-[#FDF6E9]/40 text-xs focus:border-[#1B4D2E] outline-none transition-all text-[#2B1D14] font-medium"
               />
             </div>
 
             {/* Phone */}
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal uppercase tracking-wider mb-1">
-                {language === 'hi' ? 'फ़ोन नंबर (वैकल्पिक)' : 'Phone Number (Optional)'}
+              <label className="block text-xs font-black text-[#1B4D2E] uppercase tracking-wider mb-1">
+                {language === 'hi' ? 'फ़ोन नंबर' : 'Phone Number'}
               </label>
               <div className="relative">
-                <Phone className="w-4 h-4 text-brand-stone absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Phone className="w-4 h-4 text-[#8C7C72] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="tel"
                   {...register('phone')}
-                  placeholder="+91 98765 00000"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-brand-border bg-brand-sand/30 text-xs focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition-all text-brand-charcoal"
+                  placeholder="+91 98765 43210"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-full border border-[#E8DFCF] bg-[#FDF6E9]/40 text-xs focus:border-[#1B4D2E] outline-none transition-all text-[#2B1D14] font-medium"
                 />
               </div>
             </div>
 
             {/* Password */}
             <div>
-              <label className="block text-xs font-bold text-brand-charcoal uppercase tracking-wider mb-1">
-                {language === 'hi' ? 'पासवर्ड (कम से कम 6 अक्षर)' : 'Password'} <span className="text-brand-red">*</span>
+              <label className="block text-xs font-black text-[#1B4D2E] uppercase tracking-wider mb-1">
+                {language === 'hi' ? 'पासवर्ड' : 'Password'} <span className="text-[#D6301F]">*</span>
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-brand-stone absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <Lock className="w-4 h-4 text-[#8C7C72] absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   {...register('password', {
                     required: 'Password is required',
-                    minLength: { value: 6, message: 'Password must be at least 6 characters' }
+                    minLength: { value: 6, message: 'Must be at least 6 characters' }
                   })}
-                  placeholder="••••••••••••"
-                  className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-brand-border bg-brand-sand/30 text-xs focus:border-brand-forest focus:ring-1 focus:ring-brand-forest outline-none transition-all text-brand-charcoal"
+                  placeholder="••••••••"
+                  className="w-full pl-10 pr-10 py-2.5 rounded-full border border-[#E8DFCF] bg-[#FDF6E9]/40 text-xs focus:border-[#1B4D2E] outline-none transition-all text-[#2B1D14]"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="p-1 text-brand-stone hover:text-brand-charcoal absolute right-3 top-1/2 -translate-y-1/2"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#8C7C72] hover:text-[#1B4D2E]"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
               {errors.password && (
-                <p className="text-xs text-brand-red mt-1">{errors.password.message}</p>
+                <p className="text-xs text-[#D6301F] mt-1">{errors.password.message}</p>
               )}
             </div>
 
             <button
               type="submit"
               disabled={submitting}
-              className="w-full py-3 px-4 rounded-xl bg-brand-forest hover:bg-brand-forest-light text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md active:scale-98 disabled:opacity-60 flex items-center justify-center gap-2 mt-2"
+              className="btn-shimmer w-full mt-2 py-3.5 px-4 rounded-full bg-[#1B4D2E] hover:bg-[#25663D] text-[#FDF6E9] text-xs font-black tracking-widest uppercase transition-all shadow-md active:scale-95 disabled:opacity-50"
             >
-              {submitting ? (
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-              ) : (
-                <>
-                  <UserPlus className="w-4 h-4" />
-                  <span>{language === 'hi' ? 'खाता बनाएं' : 'Register Account'}</span>
-                </>
-              )}
+              {submitting
+                ? (language === 'hi' ? 'खाता बनाया जा रहा है...' : 'Creating Account...')
+                : (language === 'hi' ? 'खाता बनाएं' : 'Create Account')}
             </button>
           </form>
 
-          <div className="mt-6 pt-5 border-t border-brand-border/60 text-center">
-            <p className="text-xs text-brand-stone">
-              {language === 'hi' ? 'पहले से खाता है?' : 'Already have an account?'}{' '}
-              <Link
-                to="/login"
-                className="font-bold text-brand-forest hover:text-brand-forest-light underline underline-offset-2 ml-1"
-              >
-                {language === 'hi' ? 'लॉगिन करें' : 'Sign In'}
+          <div className="mt-6 pt-6 border-t border-[#E8DFCF] text-center space-y-3">
+            <p className="text-xs text-[#5A483E]">
+              {language === 'hi' ? 'क्या पहले से खाता है?' : 'Already have an account?'}{' '}
+              <Link to="/login" className="font-bold text-[#D6301F] hover:underline">
+                {language === 'hi' ? 'साइन इन करें' : 'Sign In'}
               </Link>
             </p>
+            <div>
+              <Link
+                to="/"
+                className="inline-flex items-center gap-1.5 text-xs text-[#8C7C72] hover:text-[#1B4D2E] transition-colors"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>{language === 'hi' ? 'मुख्य पृष्ठ पर वापस जाएं' : 'Back to Home'}</span>
+              </Link>
+            </div>
           </div>
-        </div>
-
-        <div className="mt-6 text-center">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-xs text-brand-stone hover:text-brand-forest transition-colors"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>{language === 'hi' ? 'मुख्य पृष्ठ पर वापस जाएं' : 'Back to Storefront'}</span>
-          </Link>
         </div>
       </div>
     </div>

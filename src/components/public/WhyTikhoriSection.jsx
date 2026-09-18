@@ -3,9 +3,16 @@ import { Leaf, ShieldCheck, Sparkles, CheckCircle2, Award } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import ScrollReveal from '../common/ScrollReveal';
 
+/**
+ * Section: The 5 Core Trust Pillars (Why Tikhori)
+ * Enriched with the golden parchment scroll texture:
+ * /assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_ssi9gpssi9gpssi9.png
+ */
 export const WhyTikhoriSection = ({ content }) => {
   const { t, language } = useLanguage();
   const whyData = content?.whyTikhori || {};
+
+  const scrollBackdropSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_ssi9gpssi9gpssi9.png');
 
   const iconMap = {
     Leaf,
@@ -62,24 +69,40 @@ export const WhyTikhoriSection = ({ content }) => {
 
   return (
     <section id="why-tikhori" className="py-20 md:py-28 bg-[#FDF6E9] relative border-b border-[#E8DFCF]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+        {/* Editorial Header Banner with Parchment Scroll Foundation */}
         <ScrollReveal animation="fade-up" delay={50}>
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-black text-[#1B4D2E] uppercase tracking-[0.2em] bg-[#1B4D2E]/10 px-3.5 py-1.5 rounded-full border border-[#1B4D2E]/20">
-              {t(whyData.tagline, language === 'hi' ? 'टिखोरी की विशेषता' : 'THE TIKHORI DIFFERENCE')}
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[#1B4D2E] tracking-tight">
-              {t(whyData.title, 'Why Tikhori Foods?')}
-            </h2>
-            <p className="text-base sm:text-lg text-[#5A483E] leading-relaxed">
-              {t(
-                whyData.subtitle,
-                language === 'hi'
-                  ? 'हर चम्मच में है प्रामाणिकता, बेमिसाल शुद्धता और भारतीय मसालों की समृद्ध परंपरा।'
-                  : 'Every spoonful is grounded in authenticity, uncompromising purity, and traditional stone-ground milling.'
-              )}
-            </p>
+          <div className="relative rounded-3xl overflow-hidden shadow-lg border-2 border-[#E8DFCF] bg-[#FDF6E9]">
+            {/* Background Parchment Graphic */}
+            <div className="relative w-full aspect-[21/9] sm:aspect-[3/1] lg:aspect-[4/1] overflow-hidden">
+              <img
+                src={scrollBackdropSrc}
+                alt="Tikhori Heritage Parchment"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-[#FDF6E9]/40 pointer-events-none"></div>
+
+              {/* Centered Editorial Typography within the parchment */}
+              <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-10 text-center">
+                <div className="max-w-2xl space-y-2">
+                  <span className="text-xs font-black text-[#1B4D2E] uppercase tracking-[0.2em] bg-white/80 px-3.5 py-1.5 rounded-full border border-[#1B4D2E]/20 inline-block shadow-2xs">
+                    {t(whyData.tagline, language === 'hi' ? 'टिखोरी की विशेषता' : 'THE TIKHORI DIFFERENCE')}
+                  </span>
+                  <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black text-[#1B4D2E] tracking-tight">
+                    {t(whyData.title, 'Why Tikhori Foods?')}
+                  </h2>
+                  <p className="text-xs sm:text-sm md:text-base text-[#5A483E] font-medium leading-relaxed max-w-xl mx-auto hidden sm:block">
+                    {t(
+                      whyData.subtitle,
+                      language === 'hi'
+                        ? 'हर चम्मच में है प्रामाणिकता, बेमिसाल शुद्धता और भारतीय मसालों की समृद्ध परंपरा।'
+                        : 'Every spoonful is grounded in authenticity, uncompromising purity, and traditional stone-ground milling.'
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
 

@@ -1,39 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, CheckCircle2, ShieldCheck, Award } from 'lucide-react';
+import { ArrowRight, Sparkles, Sprout, Hand, Scissors, Award } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import ScallopedBadge from '../common/ScallopedBadge';
 import ScrollReveal from '../common/ScrollReveal';
 
 /**
- * Section 2 — Origin Story
- * Reference: DOCS/tikhori-foods-design-spec.md
- * Enhanced with scroll reveals, 3D plate hover, and pillar card interactions.
+ * Section 2 — Origin Story / Farm-to-Kitchen
+ * Incorporates the farm-to-kitchen composite banner:
+ * /assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_hh4m7uhh4m7uhh4m.png
  */
 export const OriginStorySection = ({ content }) => {
   const { t, language } = useLanguage();
   const about = content?.about || {};
 
+  const originBannerSrc = encodeURI('/assets/HOMEPAGE SECTION BANNERS  VISUAL SECTIONS/Gemini_Generated_Image_hh4m7uhh4m7uhh4m.png');
+
   return (
     <section id="origin-story" className="relative overflow-hidden bg-[#1B4D2E] text-[#FDF6E9] py-20 md:py-28 lg:py-36">
-      {/* Subtle background decorative spice rings with gentle spin */}
+      {/* Background Decorative Circles */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full border-2 border-[#F2C230]/10 pointer-events-none animate-spin-slow"></div>
       <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-80 h-80 rounded-full border-2 border-[#F2C230]/10 pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+        {/* Top Split Block: Narrative + Visual Canvas */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Narrative Content */}
+          {/* Left Column: Narrative */}
           <div className="lg:col-span-7 space-y-6">
             <ScrollReveal animation="fade-up" delay={50}>
-              {/* Golden Yellow Eyebrow */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F2C230]/15 border border-[#F2C230]/30 text-[#F2C230] text-xs font-black tracking-[0.2em] uppercase">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>{language === 'hi' ? 'हमारी शुरुआत' : 'WHERE IT ALL STARTED'}</span>
+                <span>{language === 'hi' ? 'खेत से रसोई तक' : 'FARM TO KITCHEN'}</span>
               </div>
             </ScrollReveal>
 
             <ScrollReveal animation="fade-up" delay={150}>
-              {/* Large Cream Headline */}
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[#FDF6E9] tracking-tight leading-[1.12]">
                 {language === 'hi' ? (
                   <>
@@ -48,7 +49,6 @@ export const OriginStorySection = ({ content }) => {
             </ScrollReveal>
 
             <ScrollReveal animation="fade-up" delay={250}>
-              {/* Supporting Story Paragraph */}
               <p className="text-base sm:text-lg text-[#FDF6E9]/85 leading-relaxed">
                 {t(
                   about.story,
@@ -59,7 +59,7 @@ export const OriginStorySection = ({ content }) => {
               </p>
             </ScrollReveal>
 
-            {/* 3 Heritage Pillars with Staggered ScrollReveal & Hover Lift */}
+            {/* 3 Heritage Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <ScrollReveal animation="fade-up" delay={300}>
                 <div className="bg-[#123620] p-4 rounded-2xl border border-[#F2C230]/20 hover:border-[#F2C230] hover:-translate-y-1 transition-all duration-300 shadow-xs group">
@@ -98,7 +98,6 @@ export const OriginStorySection = ({ content }) => {
               </ScrollReveal>
             </div>
 
-            {/* CTA Button in Golden Yellow with Shimmer */}
             <ScrollReveal animation="fade-up" delay={550}>
               <div className="pt-4">
                 <Link
@@ -112,49 +111,35 @@ export const OriginStorySection = ({ content }) => {
             </ScrollReveal>
           </div>
 
-          {/* Right Column: Split Visual on Patterned Plate with Scalloped Badge */}
-          <div className="lg:col-span-5 flex justify-center">
+          {/* Right Column: Full-Color Panoramic Farm-to-Kitchen Artwork Frame */}
+          <div className="lg:col-span-5">
             <ScrollReveal animation="scale" delay={200} duration={800}>
-              <div className="relative w-full max-w-md">
-                {/* Patterned Frame / Plate Background with gentle hover lift */}
-                <div className="relative rounded-3xl p-5 sm:p-6 bg-[#123620] border-2 border-[#F2C230]/30 shadow-2xl hover:shadow-[0_20px_50px_rgba(242,194,48,0.2)] transition-shadow duration-500 overflow-hidden group">
-                  {/* Vintage Scrapbook Styling Plate */}
-                  <div className="relative rounded-2xl overflow-hidden bg-[#FDF6E9] p-4 sm:p-6 text-center transform -rotate-1 group-hover:rotate-0 group-hover:scale-[1.02] transition-transform duration-500">
-                    <div className="relative">
-                      <img
-                        src="/assets/products/product-2.png"
-                        alt="Stone Ground Haldi"
-                        className="h-60 sm:h-72 w-auto mx-auto object-contain drop-shadow-xl animate-float"
-                      />
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-[#F2C230]/30 bg-[#123620] p-2 group">
+                <div className="rounded-2xl overflow-hidden">
+                  <img
+                    src={originBannerSrc}
+                    alt="Tikhori Spices Farm-to-Kitchen Origin Journey"
+                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-spring"
+                    loading="lazy"
+                  />
+                </div>
 
-                      {/* Circular Scalloped Badge Overlaying the Photo */}
-                      <div className="absolute -top-3 -right-3 sm:-right-4">
-                        <ScallopedBadge
-                          textTop="STONE"
-                          textMain="SLOW"
-                          textSub="MILLED"
-                          variant="yellow"
-                          size="md"
-                          rotate={-12}
-                        />
-                      </div>
-                    </div>
+                {/* Scalloped Overlay Seal */}
+                <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4">
+                  <ScallopedBadge
+                    textTop="FARM"
+                    textMain="ORIGIN"
+                    textSub="PURITY"
+                    variant="yellow"
+                    size="md"
+                    rotate={10}
+                  />
+                </div>
 
-                    <div className="mt-4 pt-3 border-t border-[#E8DFCF]">
-                      <p className="text-xs font-bold text-[#1B4D2E] tracking-wider uppercase">
-                        {language === 'hi' ? '१००% जैविक हल्दी पाउडर' : 'Turmeric Rhizome Cold Milling'}
-                      </p>
-                      <p className="text-[11px] text-[#5A483E] mt-0.5">
-                        {language === 'hi' ? 'उच्च करक्यूमिन युक्त प्राकृतिक सुगंध' : 'High Curcumin & Natural Earthy Aroma'}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Decorative Bottom Bar */}
-                  <div className="mt-4 flex items-center justify-between text-xs text-[#F2C230] px-2 font-bold uppercase tracking-wider">
-                    <span>✦ Heritage Craft</span>
-                    <span>Pure Quality ✦</span>
-                  </div>
+                <div className="p-3 text-center">
+                  <span className="text-[11px] font-extrabold text-[#F2C230] uppercase tracking-[0.2em]">
+                    {language === 'hi' ? 'शुद्ध खेत से सीधी आपूर्ति' : 'AUTHENTIC FIELD-HARVESTED PURITY'}
+                  </span>
                 </div>
               </div>
             </ScrollReveal>
